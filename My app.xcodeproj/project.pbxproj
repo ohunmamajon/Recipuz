@@ -19,10 +19,14 @@
 		CC9ABEBC2955E57E00EFF6C6 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9ABEBB2955E57E00EFF6C6 /* ShoppingViewController.swift */; };
 		CC9ABEBE2955E5B300EFF6C6 /* PlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9ABEBD2955E5B300EFF6C6 /* PlannerViewController.swift */; };
 		CC9ABEC02955F9CC00EFF6C6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9ABEBF2955F9CC00EFF6C6 /* SettingsViewController.swift */; };
-		CC9B91EC2956F8D600D0A4D2 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91EB2956F8D600D0A4D2 /* CoursesViewController.swift */; };
-		CC9B91EE2956F8EC00D0A4D2 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91ED2956F8EC00D0A4D2 /* CategoriesViewController.swift */; };
+		CC9B91EC2956F8D600D0A4D2 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91EB2956F8D600D0A4D2 /* CategoriesViewController.swift */; };
 		CC9B91F02956F8FC00D0A4D2 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91EF2956F8FC00D0A4D2 /* FavoritesViewController.swift */; };
 		CC9B91F22956F90E00D0A4D2 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91F12956F90E00D0A4D2 /* RecentViewController.swift */; };
+		CC9B91F5295A245600D0A4D2 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91F4295A245600D0A4D2 /* CollectionViewTableViewCell.swift */; };
+		CC9B91F7295A48FB00D0A4D2 /* HeaderVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91F6295A48FB00D0A4D2 /* HeaderVideoView.swift */; };
+		CC9B91FA295A4A4500D0A4D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91F9295A4A4500D0A4D2 /* Extensions.swift */; };
+		CC9B91FC295A6AA100D0A4D2 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CC9B91FB295A6AA100D0A4D2 /* video.mp4 */; };
+		CC9B91FE295A6D5600D0A4D2 /* video1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CC9B91FD295A6D5600D0A4D2 /* video1.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,10 +63,14 @@
 		CC9ABEBB2955E57E00EFF6C6 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
 		CC9ABEBD2955E5B300EFF6C6 /* PlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerViewController.swift; sourceTree = "<group>"; };
 		CC9ABEBF2955F9CC00EFF6C6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		CC9B91EB2956F8D600D0A4D2 /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
-		CC9B91ED2956F8EC00D0A4D2 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		CC9B91EB2956F8D600D0A4D2 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		CC9B91EF2956F8FC00D0A4D2 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		CC9B91F12956F90E00D0A4D2 /* RecentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
+		CC9B91F4295A245600D0A4D2 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		CC9B91F6295A48FB00D0A4D2 /* HeaderVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderVideoView.swift; sourceTree = "<group>"; };
+		CC9B91F9295A4A4500D0A4D2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CC9B91FB295A6AA100D0A4D2 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		CC9B91FD295A6D5600D0A4D2 /* video1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +101,8 @@
 		CC9ABE7C2955DF4300EFF6C6 = {
 			isa = PBXGroup;
 			children = (
+				CC9B91FD295A6D5600D0A4D2 /* video1.mp4 */,
+				CC9B91FB295A6AA100D0A4D2 /* video.mp4 */,
 				CC9ABE872955DF4300EFF6C6 /* My app */,
 				CC9ABE9E2955DF4500EFF6C6 /* My appTests */,
 				CC9ABEA82955DF4500EFF6C6 /* My appUITests */,
@@ -115,6 +125,8 @@
 			children = (
 				CC9ABE882955DF4300EFF6C6 /* AppDelegate.swift */,
 				CC9ABE8A2955DF4300EFF6C6 /* SceneDelegate.swift */,
+				CC9B91F8295A4A2700D0A4D2 /* Extensions */,
+				CC9B91F3295A23F000D0A4D2 /* Views */,
 				CC9ABEB82955E48C00EFF6C6 /* Controllers */,
 				CC9ABE912955DF4500EFF6C6 /* Assets.xcassets */,
 				CC9ABE932955DF4500EFF6C6 /* LaunchScreen.storyboard */,
@@ -156,12 +168,28 @@
 		CC9B91EA2956F89400D0A4D2 /* child view */ = {
 			isa = PBXGroup;
 			children = (
-				CC9B91EB2956F8D600D0A4D2 /* CoursesViewController.swift */,
-				CC9B91ED2956F8EC00D0A4D2 /* CategoriesViewController.swift */,
+				CC9B91EB2956F8D600D0A4D2 /* CategoriesViewController.swift */,
 				CC9B91EF2956F8FC00D0A4D2 /* FavoritesViewController.swift */,
 				CC9B91F12956F90E00D0A4D2 /* RecentViewController.swift */,
 			);
 			path = "child view";
+			sourceTree = "<group>";
+		};
+		CC9B91F3295A23F000D0A4D2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC9B91F4295A245600D0A4D2 /* CollectionViewTableViewCell.swift */,
+				CC9B91F6295A48FB00D0A4D2 /* HeaderVideoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CC9B91F8295A4A2700D0A4D2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CC9B91F9295A4A4500D0A4D2 /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +296,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC9B91FE295A6D5600D0A4D2 /* video1.mp4 in Resources */,
+				CC9B91FC295A6AA100D0A4D2 /* video.mp4 in Resources */,
 				CC9ABE952955DF4500EFF6C6 /* LaunchScreen.storyboard in Resources */,
 				CC9ABE922955DF4500EFF6C6 /* Assets.xcassets in Resources */,
 			);
@@ -295,12 +325,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC9ABE8D2955DF4300EFF6C6 /* MainTabBarViewController.swift in Sources */,
-				CC9B91EC2956F8D600D0A4D2 /* CoursesViewController.swift in Sources */,
+				CC9B91EC2956F8D600D0A4D2 /* CategoriesViewController.swift in Sources */,
 				CC9B91F22956F90E00D0A4D2 /* RecentViewController.swift in Sources */,
-				CC9B91EE2956F8EC00D0A4D2 /* CategoriesViewController.swift in Sources */,
+				CC9B91F5295A245600D0A4D2 /* CollectionViewTableViewCell.swift in Sources */,
 				CC9ABE892955DF4300EFF6C6 /* AppDelegate.swift in Sources */,
 				CC9ABEC02955F9CC00EFF6C6 /* SettingsViewController.swift in Sources */,
 				CC9ABE8B2955DF4300EFF6C6 /* SceneDelegate.swift in Sources */,
+				CC9B91F7295A48FB00D0A4D2 /* HeaderVideoView.swift in Sources */,
+				CC9B91FA295A4A4500D0A4D2 /* Extensions.swift in Sources */,
 				CC9ABEBE2955E5B300EFF6C6 /* PlannerViewController.swift in Sources */,
 				CC9ABEBA2955E4C000EFF6C6 /* HomeViewController.swift in Sources */,
 				CC9B91F02956F8FC00D0A4D2 /* FavoritesViewController.swift in Sources */,

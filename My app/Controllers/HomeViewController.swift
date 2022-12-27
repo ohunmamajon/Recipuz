@@ -7,13 +7,14 @@
 
 import UIKit
 
-let firstVC = CoursesViewController()
-let secondVC = CategoriesViewController()
-let thirdVC = FavoritesViewController()
-let fourthVC = RecentViewController()
+
+let categoriesVC = CategoriesViewController()
+let favoritesVC = FavoritesViewController()
+let recentVC = RecentViewController()
+
 
 class HomeViewController: UIViewController {
-    let items = ["Courses" , "Categories", "Favorites", "Recent"]
+    let items = ["Categories", "Favorites", "Recent"]
     let haptic = UISelectionFeedbackGenerator()
     
     lazy var segmentControl : UISegmentedControl = {
@@ -28,6 +29,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         haptic.prepare()
         view.backgroundColor = .systemBackground
+        title = "Shef"
+        navigationItem.rightBarButtonItem =  UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .done, target: self, action: nil)
         view.addSubview(segmentControl)
         setup()
         NSLayoutConstraint.activate([
@@ -38,47 +41,44 @@ class HomeViewController: UIViewController {
     
     func setup(){
 
-        addChild(firstVC)
-        addChild(secondVC)
-        addChild(thirdVC)
-        addChild(fourthVC)
+        addChild(categoriesVC)
+        addChild(favoritesVC)
+        addChild(recentVC)
         
-        self.view.addSubview(firstVC.view)
-        self.view.addSubview(secondVC.view)
-        self.view.addSubview(thirdVC.view)
-        self.view.addSubview(fourthVC.view)
+        self.view.addSubview(categoriesVC.view)
+        self.view.addSubview(favoritesVC.view)
+        self.view.addSubview(recentVC.view)
         
-        firstVC.didMove(toParent: self)
-        secondVC.didMove(toParent: self)
-        thirdVC.didMove(toParent: self)
-        fourthVC.didMove(toParent: self)
+        categoriesVC.didMove(toParent: self)
+        favoritesVC.didMove(toParent: self)
+        recentVC.didMove(toParent: self)
         
-        firstVC.view.frame = CGRect(x: 20, y: 200, width: 400, height: 600)
-        secondVC.view.frame =  CGRect(x: 20, y: 200, width: 400, height: 600)
-        thirdVC.view.frame =  CGRect(x: 20, y: 200, width: 400, height: 600)
-        fourthVC.view.frame =  CGRect(x: 20, y: 200, width: 400, height: 600)
         
-        secondVC.view.isHidden = true
-        thirdVC.view.isHidden = true
-        fourthVC.view.isHidden = true
+        
+        categoriesVC.view.frame.origin.x = 0
+        categoriesVC.view.frame.origin.y =  categoriesVC.view.frame.origin.y + segmentControl.frame.height * 4.8
+        favoritesVC.view.frame.origin.x = 0
+        favoritesVC.view.frame.origin.y =  categoriesVC.view.frame.origin.y
+        recentVC.view.frame.origin.x = 0
+        recentVC.view.frame.origin.y =  categoriesVC.view.frame.origin.y
+        
+        favoritesVC.view.isHidden = true
+        recentVC.view.isHidden = true
     }
 
     @objc func topMenuChanged(){
         
-        firstVC.view.isHidden = true
-        secondVC.view.isHidden = true
-        thirdVC.view.isHidden = true
-        fourthVC.view.isHidden = true
+        categoriesVC.view.isHidden = true
+        favoritesVC.view.isHidden = true
+        recentVC.view.isHidden = true
         haptic.selectionChanged()
         switch segmentControl.selectedSegmentIndex{
         case 0:
-            firstVC.view.isHidden = false
+            categoriesVC.view.isHidden = false
         case 1:
-            secondVC.view.isHidden = false
+            favoritesVC.view.isHidden = false
         case 2:
-            thirdVC.view.isHidden = false
-        case 3:
-            fourthVC.view.isHidden = false
+            recentVC.view.isHidden = false
         default:
             view.backgroundColor = .systemRed
         }
