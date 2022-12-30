@@ -29,14 +29,13 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         haptic.prepare()
         view.backgroundColor = .systemBackground
-        title = "Shef"
+//        title = "Shef"
+        navigationItem.titleView = segmentControl
         navigationItem.rightBarButtonItem =  UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .done, target: self, action: nil)
-        view.addSubview(segmentControl)
+        
         setup()
-        NSLayoutConstraint.activate([
-            segmentControl.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2),
-            segmentControl.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 4),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: segmentControl.trailingAnchor, multiplier: 4)])
+       
+        
     }
     
     func setup(){
@@ -56,16 +55,22 @@ class HomeViewController: UIViewController {
         
         
         categoriesVC.view.frame.origin.x = 0
-        categoriesVC.view.frame.origin.y =  categoriesVC.view.frame.origin.y + segmentControl.frame.height * 4.8
         favoritesVC.view.frame.origin.x = 0
-        favoritesVC.view.frame.origin.y =  categoriesVC.view.frame.origin.y
-        recentVC.view.frame.origin.x = 0
-        recentVC.view.frame.origin.y =  categoriesVC.view.frame.origin.y
         
+        recentVC.view.frame.origin.x = 0
+       
         favoritesVC.view.isHidden = true
         recentVC.view.isHidden = true
     }
-
+    override func viewDidLayoutSubviews() {
+       guard let navBar = navigationController?.navigationBar else {return}
+        
+        categoriesVC.view.frame.origin.y =  navBar.frame.maxY
+        favoritesVC.view.frame.origin.y =  categoriesVC.view.frame.origin.y
+        recentVC.view.frame.origin.y =  categoriesVC.view.frame.origin.y
+        
+        
+    }
     @objc func topMenuChanged(){
         
         categoriesVC.view.isHidden = true

@@ -8,10 +8,10 @@
 import AVFoundation
 import UIKit
 
-/// Class that plays and manages control of a video on a `UIView`.
-public class HeaderVideoView {
+
+public class VideoPlayer {
     /// Singleton that can play one video on one `UIView` at a time.
-    public static let shared = HeaderVideoView()
+    public static let shared = VideoPlayer()
 
     /// Change this `CGFloat` to adjust the darkness of the video. Value `0` to `1`. Higher numbers are darker. Setting
     /// to an invalid value does nothing.

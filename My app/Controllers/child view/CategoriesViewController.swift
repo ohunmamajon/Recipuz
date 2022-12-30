@@ -8,41 +8,40 @@
 import UIKit
 import AVKit
 class CategoriesViewController: UIViewController {
-    let playerView = HeaderVideoView()
-    let headerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 300)
-        return view
-    }()
+    
+    let sectionTitles: [String] = ["Uzbek Meals", "Western Meals", "Drinks", "Deserts", "Cakes"]
+    
+    var headerView : HeaderView?
+ 
     let coursesTable :  UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
+       
         return table
     }()
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemIndigo
         view.addSubview(coursesTable)
+       
         coursesTable.delegate = self
         coursesTable.dataSource = self
-        coursesTable.tableHeaderView = headerView
+
+
+        headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height / 4))
         
-        try? HeaderVideoView.shared.play(
-            view: headerView,
-            videoName: "video1",
-            videoType: "mp4",
-            isMuted: false, darkness: 0.1,
-            willLoopVideo: true,
-            setAudioSessionAmbient: true
-        )
+  coursesTable.tableHeaderView = headerView
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         coursesTable.frame = view.bounds
+        
+        
     }
     
     
@@ -51,9 +50,9 @@ class CategoriesViewController: UIViewController {
 extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        20
+        sectionTitles.count
     }
-    
+  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
     }
@@ -69,5 +68,24 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         40
     }
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else {return}
+        header.textLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+        header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
+        header.textLabel?.textColor = .label
+        header.contentView.backgroundColor = .systemBackground
+    }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+       return sectionTitles[section]
+    }
+    
+    // diappearing bar
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        
+//        let defaulOffset = view.safeAreaInsets.top
+//        let offSet = scrollView.contentOffset.y + defaulOffset
+//        navigationController?.navigationBar.transform = .init(translationX: 0, y: .minimum(0, -offSet))
+//        
+//    }
 }
