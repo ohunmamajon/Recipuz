@@ -19,6 +19,9 @@
 		CC9ABEBC2955E57E00EFF6C6 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9ABEBB2955E57E00EFF6C6 /* ShoppingViewController.swift */; };
 		CC9ABEBE2955E5B300EFF6C6 /* PlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9ABEBD2955E5B300EFF6C6 /* PlannerViewController.swift */; };
 		CC9ABEC02955F9CC00EFF6C6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9ABEBF2955F9CC00EFF6C6 /* SettingsViewController.swift */; };
+		CC9AE3512962014F00194318 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9AE3502962014F00194318 /* RecipeViewController.swift */; };
+		CC9AE35329621AC200194318 /* RecipeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9AE35229621AC200194318 /* RecipeHeaderView.swift */; };
+		CC9AE35529635C8900194318 /* RecipeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9AE35429635C8900194318 /* RecipeInfoView.swift */; };
 		CC9B91EC2956F8D600D0A4D2 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91EB2956F8D600D0A4D2 /* CategoriesViewController.swift */; };
 		CC9B91F02956F8FC00D0A4D2 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91EF2956F8FC00D0A4D2 /* FavoritesViewController.swift */; };
 		CC9B91F22956F90E00D0A4D2 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91F12956F90E00D0A4D2 /* RecentViewController.swift */; };
@@ -27,6 +30,7 @@
 		CC9B91FA295A4A4500D0A4D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91F9295A4A4500D0A4D2 /* Extensions.swift */; };
 		CCBA0956295B99E60064F772 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA0955295B99E60064F772 /* HeaderView.swift */; };
 		CCBA095A295BB3090064F772 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CCBA0959295BB3090064F772 /* video.mp4 */; };
+		CCBE38B6296059FE00266022 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBE38B5296059FE00266022 /* Recipes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,9 @@
 		CC9ABEBB2955E57E00EFF6C6 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
 		CC9ABEBD2955E5B300EFF6C6 /* PlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerViewController.swift; sourceTree = "<group>"; };
 		CC9ABEBF2955F9CC00EFF6C6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		CC9AE3502962014F00194318 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		CC9AE35229621AC200194318 /* RecipeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHeaderView.swift; sourceTree = "<group>"; };
+		CC9AE35429635C8900194318 /* RecipeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInfoView.swift; sourceTree = "<group>"; };
 		CC9B91EB2956F8D600D0A4D2 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		CC9B91EF2956F8FC00D0A4D2 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		CC9B91F12956F90E00D0A4D2 /* RecentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +78,7 @@
 		CC9B91F9295A4A4500D0A4D2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CCBA0955295B99E60064F772 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		CCBA0959295BB3090064F772 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		CCBE38B5296059FE00266022 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,12 +173,22 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		CC9AE35629635CA300194318 /* RecipeViews */ = {
+			isa = PBXGroup;
+			children = (
+				CC9AE35229621AC200194318 /* RecipeHeaderView.swift */,
+				CC9AE35429635C8900194318 /* RecipeInfoView.swift */,
+			);
+			path = RecipeViews;
+			sourceTree = "<group>";
+		};
 		CC9B91EA2956F89400D0A4D2 /* child view */ = {
 			isa = PBXGroup;
 			children = (
 				CC9B91EB2956F8D600D0A4D2 /* CategoriesViewController.swift */,
 				CC9B91EF2956F8FC00D0A4D2 /* FavoritesViewController.swift */,
 				CC9B91F12956F90E00D0A4D2 /* RecentViewController.swift */,
+				CC9AE3502962014F00194318 /* RecipeViewController.swift */,
 			);
 			path = "child view";
 			sourceTree = "<group>";
@@ -180,6 +198,7 @@
 			children = (
 				CC9B91F4295A245600D0A4D2 /* CollectionViewTableViewCell.swift */,
 				CCBA0955295B99E60064F772 /* HeaderView.swift */,
+				CC9AE35629635CA300194318 /* RecipeViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				CCBA0959295BB3090064F772 /* video.mp4 */,
+				CCBE38B5296059FE00266022 /* Recipes.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -339,9 +359,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC9AE35529635C8900194318 /* RecipeInfoView.swift in Sources */,
 				CC9ABE8D2955DF4300EFF6C6 /* MainTabBarViewController.swift in Sources */,
 				CC9B91EC2956F8D600D0A4D2 /* CategoriesViewController.swift in Sources */,
 				CC9B91F22956F90E00D0A4D2 /* RecentViewController.swift in Sources */,
+				CC9AE35329621AC200194318 /* RecipeHeaderView.swift in Sources */,
 				CC9B91F5295A245600D0A4D2 /* CollectionViewTableViewCell.swift in Sources */,
 				CC9ABE892955DF4300EFF6C6 /* AppDelegate.swift in Sources */,
 				CC9ABEC02955F9CC00EFF6C6 /* SettingsViewController.swift in Sources */,
@@ -349,7 +371,9 @@
 				CC9B91F7295A48FB00D0A4D2 /* VideoPlayer.swift in Sources */,
 				CC9B91FA295A4A4500D0A4D2 /* Extensions.swift in Sources */,
 				CCBA0956295B99E60064F772 /* HeaderView.swift in Sources */,
+				CCBE38B6296059FE00266022 /* Recipes.swift in Sources */,
 				CC9ABEBE2955E5B300EFF6C6 /* PlannerViewController.swift in Sources */,
+				CC9AE3512962014F00194318 /* RecipeViewController.swift in Sources */,
 				CC9ABEBA2955E4C000EFF6C6 /* HomeViewController.swift in Sources */,
 				CC9B91F02956F8FC00D0A4D2 /* FavoritesViewController.swift in Sources */,
 				CC9ABEBC2955E57E00EFF6C6 /* ShoppingViewController.swift in Sources */,

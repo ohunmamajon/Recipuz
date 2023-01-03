@@ -25,8 +25,12 @@ class HomeViewController: UIViewController {
         return view
     }()
     
-    override func viewDidLoad() {
+    override func viewDidLoad()  {
         super.viewDidLoad()
+        
+        
+    
+        print(Recipes.Plov.ingredients)
         haptic.prepare()
         view.backgroundColor = .systemBackground
 //        title = "Shef"

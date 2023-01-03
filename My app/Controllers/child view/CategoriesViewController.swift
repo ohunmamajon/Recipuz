@@ -16,7 +16,7 @@ class CategoriesViewController: UIViewController {
     let coursesTable :  UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
-       
+        table.backgroundColor = .systemBackground
         return table
     }()
     
@@ -24,17 +24,20 @@ class CategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .systemIndigo
+        let recipeVC = RecipeViewController()
+        navigationController?.pushViewController(recipeVC, animated: true)
+        view.backgroundColor = .systemBackground
         view.addSubview(coursesTable)
        
         coursesTable.delegate = self
         coursesTable.dataSource = self
 
 
-        headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height / 4))
+        headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height / 4.5))
+        
         
   coursesTable.tableHeaderView = headerView
+       
     }
     
     override func viewDidLayoutSubviews() {
@@ -59,6 +62,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {return UITableViewCell() }
+        tableView.separatorStyle = .none
         return cell
     }
     

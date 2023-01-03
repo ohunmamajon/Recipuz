@@ -40,10 +40,9 @@ class CollectionViewTableViewCell: UITableViewCell {
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemYellow
-        cell.layer.cornerRadius = 20
-        cell.layer.borderWidth = 3
-        cell.layer.borderColor = UIColor.white.cgColor
+        cell.backgroundColor = .systemCyan
+        cell.layer.cornerRadius = 10
+      
         return cell
     
     }

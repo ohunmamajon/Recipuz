@@ -42,20 +42,20 @@ class HeaderView: UIView {
         
         addSubview(label)
        
-        try? VideoPlayer.shared.play(
-            view: videoView,
-            videoName: "video",
-            videoType: "mp4",
-            isMuted: true,
-            darkness: 0.1,
-            willLoopVideo: true,
-            setAudioSessionAmbient: true
-        )
+//        try? VideoPlayer.shared.play(
+//            view: videoView,
+//            videoName: "video",
+//            videoType: "mp4",
+//            isMuted: true,
+//            darkness: 0.1,
+//            willLoopVideo: true,
+//            setAudioSessionAmbient: true
+//        )
 
     }
     private func applyConstraints(){
        
-        videoView.frame = bounds
+        videoView.frame = CGRect(x: 10, y: 0, width: bounds.width - 20, height: bounds.height)
         label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive = true
         label.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
@@ -68,7 +68,7 @@ class HeaderView: UIView {
     func  applyGradient(){
       let  gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds
-        gradientLayer.colors = [UIColor.clear.cgColor,UIColor.clear.cgColor,UIColor.clear.cgColor, UIColor.systemBackground.cgColor]
+        gradientLayer.colors = [UIColor.clear.cgColor,UIColor.clear.cgColor, UIColor.systemBackground.cgColor]
         
         layer.insertSublayer(gradientLayer, below: label.layer)
     }
@@ -76,10 +76,10 @@ class HeaderView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+       
         applyConstraints()
         applyGradient()
-        
+       
         
         
     }
