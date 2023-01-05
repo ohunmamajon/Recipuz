@@ -13,7 +13,9 @@ class RecipeViewController: UIViewController {
     
     let recipeTable : UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(RecipeInfoCell.self, forCellReuseIdentifier: RecipeInfoCell.identifier)
+        table.register(IngredientCell.self, forCellReuseIdentifier: IngredientCell.identifier)
+        table.register(CookingGuideCell.self, forCellReuseIdentifier: CookingGuideCell.identifier)
         return table
     } ()
     
@@ -42,16 +44,32 @@ extension RecipeViewController : UITableViewDelegate, UITableViewDataSource {
         3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-         let recipeView = RecipeInfoView(frame:CGRect(x: 0, y: 0, width: view.bounds.width, height: 200)) 
-        cell.contentView.addSubview(recipeView)
-        cell.selectionStyle = .none
-        tableView.separatorStyle = .none
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: RecipeInfoCell.identifier, for: indexPath) as! RecipeInfoCell
+            cell.selectionStyle = .none
+            tableView.separatorStyle = .none
+            cell.backgroundColor = .systemBackground
+            return cell
+        }
+        else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: IngredientCell.identifier, for: indexPath) as! IngredientCell
+            cell.selectionStyle = .none
+            tableView.separatorStyle = .none
+            cell.backgroundColor = .systemBackground
+            return cell
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: CookingGuideCell.identifier, for: indexPath) as! CookingGuideCell
+            cell.selectionStyle = .none
+            tableView.separatorStyle = .none
+            cell.backgroundColor = .systemBackground
+            return cell
+        }
+        
     }
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
@@ -60,9 +78,7 @@ extension RecipeViewController : UITableViewDelegate, UITableViewDataSource {
             navigationController?.navigationBar.transform = .init(translationX: 0, y: .minimum(0, -offSet))
 
         }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
-    }
+
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
         header.textLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -70,8 +86,18 @@ extension RecipeViewController : UITableViewDelegate, UITableViewDataSource {
         header.textLabel?.textColor = .label
         header.contentView.backgroundColor = .systemBackground
     }
+   
+
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
        return Recipes.Plov.title
     }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+   
 }

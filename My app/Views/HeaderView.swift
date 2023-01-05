@@ -39,7 +39,7 @@ class HeaderView: UIView {
     override  init(frame: CGRect) {
         super.init(frame: frame)
        addSubview(videoView)
-        
+//        applyGradient()
         addSubview(label)
        
 //        try? VideoPlayer.shared.play(
@@ -78,7 +78,7 @@ class HeaderView: UIView {
         super.layoutSubviews()
        
         applyConstraints()
-        applyGradient()
+       
        
         
         

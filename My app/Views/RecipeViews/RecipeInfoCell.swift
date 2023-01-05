@@ -7,8 +7,8 @@
 
 import UIKit
 
-class RecipeInfoView: UIView {
-   
+class RecipeInfoCell: UITableViewCell {
+   static let identifier = "RecipeInfoCell"
     let info: UILabel = {
         let label = UILabel()
         label.text = Recipes.Plov.info
@@ -53,16 +53,16 @@ class RecipeInfoView: UIView {
     }()
     
    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-       
-        addSubview(info)
-        addSubview(serving)
-        addSubview(preparationTime)
-       addSubview(personIcon)
-        addSubview(timerIcon)
-        addSubview(stackView)
-        applyConstraints()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+  
+        contentView.addSubview(info)
+        contentView.addSubview(serving)
+        contentView.addSubview(preparationTime)
+        contentView.addSubview(personIcon)
+        contentView.addSubview(timerIcon)
+        contentView.addSubview(stackView)
+         applyConstraints()
         
     }
     lazy var stackView1: UIStackView = {
@@ -96,13 +96,14 @@ class RecipeInfoView: UIView {
 
     private func applyConstraints(){
       
-        stackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
+        stackView.centerXAnchor.constraint(equalTo:  contentView.centerXAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
         
 
-        info.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        info.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
         info.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10).isActive = true
-        info.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
+        info.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+        info.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
     }
    
     
