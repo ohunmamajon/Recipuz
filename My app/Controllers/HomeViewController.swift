@@ -30,7 +30,6 @@ class HomeViewController: UIViewController {
         
         
     
-        print(Recipes.Plov.ingredients)
         haptic.prepare()
         view.backgroundColor = .systemBackground
 //        title = "Shef"

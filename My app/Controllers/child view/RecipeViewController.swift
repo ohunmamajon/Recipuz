@@ -8,9 +8,9 @@
 import UIKit
 
 class RecipeViewController: UIViewController {
-    
+    let sectionTitles: [String] = ["Qisqacha ma'lumot", "Kerakli masalliq", "Pishirish tartibi"]
     var recipeHeader: RecipeHeaderView?
-    
+    let plov = Plov()
     let recipeTable : UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(RecipeInfoCell.self, forCellReuseIdentifier: RecipeInfoCell.identifier)
@@ -27,6 +27,7 @@ class RecipeViewController: UIViewController {
         recipeTable.delegate = self
         recipeTable.dataSource = self
         recipeHeader = RecipeHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 200))
+        recipeHeader?.configure(with: RecipeHeaderViewModel(image: plov.image!))
         recipeTable.tableHeaderView = recipeHeader
         
     }
@@ -44,13 +45,24 @@ extension RecipeViewController : UITableViewDelegate, UITableViewDataSource {
         3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return plov.ingredients.count
+        case 2:
+            return plov.cookingGuide.count
+        default:
+            return 3
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: RecipeInfoCell.identifier, for: indexPath) as! RecipeInfoCell
             cell.selectionStyle = .none
+            
+            cell.configure(with: RecipeInfoViewModel(serving: plov.serving, preparationTime: plov.preparationTime, info: plov.info))
             tableView.separatorStyle = .none
             cell.backgroundColor = .systemBackground
             return cell
@@ -59,6 +71,7 @@ extension RecipeViewController : UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: IngredientCell.identifier, for: indexPath) as! IngredientCell
             cell.selectionStyle = .none
             tableView.separatorStyle = .none
+            cell.configure(with: Ingredients(name: plov.ingredients[indexPath.row].name, amount: plov.ingredients[indexPath.row].amount))
             cell.backgroundColor = .systemBackground
             return cell
         }
@@ -66,31 +79,27 @@ extension RecipeViewController : UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: CookingGuideCell.identifier, for: indexPath) as! CookingGuideCell
             cell.selectionStyle = .none
             tableView.separatorStyle = .none
+            cell.configure(with: CookingGuide(step: plov.cookingGuide[indexPath.row].step, guide:  plov.cookingGuide[indexPath.row].guide))
             cell.backgroundColor = .systemBackground
             return cell
         }
         
     }
-        func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
-            let defaulOffset = view.safeAreaInsets.top
-            let offSet = scrollView.contentOffset.y + defaulOffset
-            navigationController?.navigationBar.transform = .init(translationX: 0, y: .minimum(0, -offSet))
-
-        }
+       
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
         header.textLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         header.textLabel?.textColor = .label
+        header.textLabel?.text =  header.textLabel?.text?.capitalizeFirstLetter()
         header.contentView.backgroundColor = .systemBackground
     }
    
 
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-       return Recipes.Plov.title
+       return sectionTitles[section]
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension

@@ -11,7 +11,6 @@ class RecipeInfoCell: UITableViewCell {
    static let identifier = "RecipeInfoCell"
     let info: UILabel = {
         let label = UILabel()
-        label.text = Recipes.Plov.info
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.numberOfLines = 0
         label.textColor = .label
@@ -21,16 +20,12 @@ class RecipeInfoCell: UITableViewCell {
    
     let serving: UILabel = {
         let label = UILabel()
-       
-        label.text = String(Recipes.Plov.serving) + " kishi"
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     let preparationTime: UILabel = {
         let label = UILabel()
-        
-        label.text = String(Recipes.Plov.preparationTime) + " minut"
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -106,7 +101,11 @@ class RecipeInfoCell: UITableViewCell {
         info.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
     }
    
-    
+    public func configure(with model: RecipeInfoViewModel){
+        info.text = model.info
+        serving.text = String(model.serving) + " kishi"
+        preparationTime.text = String(model.preparationTime) + " minut"
+    }
    
     
     required init(coder: NSCoder) {

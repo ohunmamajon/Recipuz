@@ -13,7 +13,6 @@ class IngredientCell: UITableViewCell {
     let ingredientLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Sabzi"
         label.textColor = .label
         return label
     }()
@@ -21,7 +20,6 @@ class IngredientCell: UITableViewCell {
     let amountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "4 dona"
         label.textColor = .label
         return label
     }()
@@ -33,6 +31,7 @@ class IngredientCell: UITableViewCell {
         button.setTitle("Buy", for: .normal)
        button.setTitleColor(UIColor.label, for: .normal)
         button.layer.borderWidth = 2
+       button.layer.cornerRadius = 8
        button.layer.borderColor = UIColor.label.cgColor
         return button
     }()
@@ -48,6 +47,8 @@ class IngredientCell: UITableViewCell {
         stack.axis = .horizontal
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.alignment = .center
+        stack.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        stack.isLayoutMarginsRelativeArrangement = true
         stack.distribution = .fillEqually
         stack.addArrangedSubview(ingredientLabel)
         stack.addArrangedSubview(amountLabel)
@@ -59,7 +60,14 @@ class IngredientCell: UITableViewCell {
         stackView.centerYAnchor.constraint(equalTo:contentView.centerYAnchor).isActive = true
         stackView.centerXAnchor.constraint(equalTo:contentView.centerXAnchor).isActive = true
         stackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8).isActive = true
+        stackView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 1).isActive = true
     }
+    
+    public func configure(with model: Ingredients){
+        ingredientLabel.text = model.name
+        amountLabel.text =  model.amount
+    }
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

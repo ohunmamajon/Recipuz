@@ -13,6 +13,7 @@ class HeaderView: UIView {
     
     let videoView: UIView = {
         let view = UIView()
+        view.layer.cornerRadius = 8
         view.backgroundColor = .red
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -41,13 +42,13 @@ class HeaderView: UIView {
        addSubview(videoView)
 //        applyGradient()
         addSubview(label)
-       
+//       
 //        try? VideoPlayer.shared.play(
 //            view: videoView,
 //            videoName: "video",
 //            videoType: "mp4",
 //            isMuted: true,
-//            darkness: 0.1,
+//            darkness: 0.0,
 //            willLoopVideo: true,
 //            setAudioSessionAmbient: true
 //        )

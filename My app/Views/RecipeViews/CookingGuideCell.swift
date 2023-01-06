@@ -12,15 +12,13 @@ class CookingGuideCell: UITableViewCell {
     
     let step: UILabel = {
         let label = UILabel()
-        label.text = "Step 1"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .label
         return label
     }()
     
-    let instruction: UILabel = {
+    let guide: UILabel = {
         let label = UILabel()
-        label.text = "Cooking is fun.. happy stomach Cooking is fun.. happy stomach Cooking is fun.. happy stomach Cooking is fun.. happy stomach Cooking is fun.. happy stomach Cooking is fun.. happy stomach Cooking is fun.. happy stomach Cooking is fun.. happy stomach Cooking is fun.. happy stomach Cooking is fun.. happy stomach Cooking is fun.. happy stomach Cooking is fun.. happy stomach Cooking is fun.. happy stomach"
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -32,16 +30,23 @@ class CookingGuideCell: UITableViewCell {
        step.topAnchor.constraint(equalTo: contentView.topAnchor, constant:10).isActive = true
        step.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5).isActive = true
        
-       instruction.topAnchor.constraint(equalTo: step.bottomAnchor, constant: 10).isActive = true
-       instruction.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
-       instruction.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
-       instruction.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
+       guide.topAnchor.constraint(equalTo: step.bottomAnchor, constant: 10).isActive = true
+       guide.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+       guide.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+       guide.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
    }
+    
+    public func configure(with model: CookingGuide){
+        step.text = String(model.step) + " - ko`rsatma:"
+        guide.text = model.guide
+    }
+
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(step)
-        contentView.addSubview(instruction)
+        contentView.addSubview(guide)
         applyConstraints()
     }
 

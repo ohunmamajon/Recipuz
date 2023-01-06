@@ -13,7 +13,6 @@ class RecipeHeaderView: UIView {
         
     let imageView : UIImageView = {
         let view = UIImageView()
-        view.image = Recipes.Plov.image
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +35,6 @@ class RecipeHeaderView: UIView {
         override init (frame: CGRect){
             super.init(frame: frame)
             addSubview(imageView)
-            addGradient()
             addSubview(heartButton)
             applyConstraints()
         }
@@ -52,17 +50,10 @@ class RecipeHeaderView: UIView {
                
             
         }
-        
-        private func addGradient(){
-            let gradientLayer = CAGradientLayer()
-            gradientLayer.colors = [
-                UIColor.clear.cgColor,UIColor.clear.cgColor,UIColor.clear.cgColor, UIColor.systemBackground.cgColor
-            ]
-            gradientLayer.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
-            layer.addSublayer(gradientLayer)
-        }
-        
-       
+    
+    public func configure(with model: RecipeHeaderViewModel ){
+        imageView.image = model.image
+    }
         
         override func layoutSubviews() {
             super.layoutSubviews()
