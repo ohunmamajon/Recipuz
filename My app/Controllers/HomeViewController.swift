@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
 //        title = "Shef"
         navigationItem.titleView = segmentControl
-        navigationItem.rightBarButtonItem =  UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .done, target: self, action: nil)
+    
         
         setup()
        

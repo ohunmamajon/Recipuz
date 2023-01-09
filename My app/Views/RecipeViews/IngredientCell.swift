@@ -29,10 +29,10 @@ class IngredientCell: UITableViewCell {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Buy", for: .normal)
-       button.setTitleColor(UIColor.label, for: .normal)
+        button.setTitleColor(UIColor.label, for: .normal)
         button.layer.borderWidth = 2
-       button.layer.cornerRadius = 8
-       button.layer.borderColor = UIColor.label.cgColor
+        button.layer.cornerRadius = 8
+        button.layer.borderColor = UIColor.label.cgColor
         return button
     }()
     

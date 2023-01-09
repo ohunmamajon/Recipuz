@@ -7,9 +7,17 @@
 
 import UIKit
 import AVKit
+
+enum Sections: Int {
+    case UzbekMeals = 0
+    case WesternMeals = 1
+    case Desserts = 2
+    case Cakes = 3
+}
+
 class CategoriesViewController: UIViewController {
     
-    let sectionTitles: [String] = ["Uzbek Meals", "Western Meals", "Drinks", "Deserts", "Cakes"]
+    let sectionTitles: [String] = ["Uzbek Meals", "Western Meals", "Desserts", "Cakes"]
     
     var headerView : HeaderView?
  
@@ -20,12 +28,9 @@ class CategoriesViewController: UIViewController {
         return table
     }()
     
-   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let recipeVC = RecipeViewController()
-        navigationController?.pushViewController(recipeVC, animated: true)
+
         view.backgroundColor = .systemBackground
         view.addSubview(coursesTable)
        
@@ -62,7 +67,20 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {return UITableViewCell() }
+        cell.delegate = self
         tableView.separatorStyle = .none
+        switch indexPath.section {
+        case Sections.UzbekMeals.rawValue:
+            cell.configure(with: Recipes.shared.uzbekMeals)
+        case Sections.WesternMeals.rawValue:
+            cell.configure(with: Recipes.shared.westernMeals)
+        case Sections.Desserts.rawValue:
+            cell.configure(with: Recipes.shared.desserts)
+        case Sections.Cakes.rawValue:
+            cell.configure(with: Recipes.shared.cakes)
+        default:
+            return UITableViewCell()
+        }
         return cell
     }
     
@@ -77,19 +95,19 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         header.textLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         header.textLabel?.textColor = .label
+        header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()
         header.contentView.backgroundColor = .systemBackground
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
        return sectionTitles[section]
     }
-    
-    // diappearing bar
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        
-//        let defaulOffset = view.safeAreaInsets.top
-//        let offSet = scrollView.contentOffset.y + defaulOffset
-//        navigationController?.navigationBar.transform = .init(translationX: 0, y: .minimum(0, -offSet))
-//        
-//    }
+
+}
+extension CategoriesViewController: CollectionViewTableViewCellDelegate {
+    func CollectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, currentModel: Recipe) {
+        let vc = RecipeViewController()
+        vc.configure(with: currentModel)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

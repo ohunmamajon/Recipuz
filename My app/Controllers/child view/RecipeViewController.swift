@@ -10,7 +10,7 @@ import UIKit
 class RecipeViewController: UIViewController {
     let sectionTitles: [String] = ["Qisqacha ma'lumot", "Kerakli masalliq", "Pishirish tartibi"]
     var recipeHeader: RecipeHeaderView?
-    let plov = Plov()
+    private var recipe : Recipe!
     let recipeTable : UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(RecipeInfoCell.self, forCellReuseIdentifier: RecipeInfoCell.identifier)
@@ -18,7 +18,9 @@ class RecipeViewController: UIViewController {
         table.register(CookingGuideCell.self, forCellReuseIdentifier: CookingGuideCell.identifier)
         return table
     } ()
-    
+    public func configure(with model: Recipe){
+        recipe = model
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = .label
@@ -27,7 +29,7 @@ class RecipeViewController: UIViewController {
         recipeTable.delegate = self
         recipeTable.dataSource = self
         recipeHeader = RecipeHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 200))
-        recipeHeader?.configure(with: RecipeHeaderViewModel(image: plov.image!))
+        recipeHeader?.configure(with: RecipeHeaderViewModel(image: recipe.image))
         recipeTable.tableHeaderView = recipeHeader
         
     }
@@ -49,9 +51,9 @@ extension RecipeViewController : UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return plov.ingredients.count
+            return recipe.ingredients.count
         case 2:
-            return plov.cookingGuide.count
+            return recipe.cookingGuide.count
         default:
             return 3
         }
@@ -61,8 +63,7 @@ extension RecipeViewController : UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: RecipeInfoCell.identifier, for: indexPath) as! RecipeInfoCell
             cell.selectionStyle = .none
-            
-            cell.configure(with: RecipeInfoViewModel(serving: plov.serving, preparationTime: plov.preparationTime, info: plov.info))
+            cell.configure(with: RecipeInfoViewModel(serving: recipe.serving, preparationTime: recipe.preparationTime, info: recipe.info))
             tableView.separatorStyle = .none
             cell.backgroundColor = .systemBackground
             return cell
@@ -71,7 +72,7 @@ extension RecipeViewController : UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: IngredientCell.identifier, for: indexPath) as! IngredientCell
             cell.selectionStyle = .none
             tableView.separatorStyle = .none
-            cell.configure(with: Ingredients(name: plov.ingredients[indexPath.row].name, amount: plov.ingredients[indexPath.row].amount))
+            cell.configure(with: Ingredients(name: recipe.ingredients[indexPath.row].name, amount: recipe.ingredients[indexPath.row].amount))
             cell.backgroundColor = .systemBackground
             return cell
         }
@@ -79,7 +80,7 @@ extension RecipeViewController : UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: CookingGuideCell.identifier, for: indexPath) as! CookingGuideCell
             cell.selectionStyle = .none
             tableView.separatorStyle = .none
-            cell.configure(with: CookingGuide(step: plov.cookingGuide[indexPath.row].step, guide:  plov.cookingGuide[indexPath.row].guide))
+            cell.configure(with: CookingGuide(step: recipe.cookingGuide[indexPath.row].step, guide:  recipe.cookingGuide[indexPath.row].guide))
             cell.backgroundColor = .systemBackground
             return cell
         }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Errors that can occur when playing a video.
 public enum VideoBackgroundError: LocalizedError {
@@ -24,5 +25,21 @@ extension String {
     func capitalizeFirstLetter() -> String {
         return self.prefix(1).uppercased() + self.lowercased().dropFirst()
     }
+
+    /// Apply strike font on text
+    func strikeThrough() -> NSAttributedString {
+      let attributeString = NSMutableAttributedString(string: self)
+      attributeString.addAttribute(
+        NSAttributedString.Key.strikethroughStyle,
+        value: 1,
+        range: NSRange(location: 0, length: attributeString.length))
+
+        return attributeString
+       }
+    func removeStrikeThrough() -> NSAttributedString {
+      let attributeString = NSMutableAttributedString(string: self)
+        attributeString.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSRange(location: 0, length: attributeString.length))
+        return attributeString
+       }
 }
 
