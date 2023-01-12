@@ -40,7 +40,15 @@
 		CCB95C912967250C00DB4857 /* CookingGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB95C902967250C00DB4857 /* CookingGuideCell.swift */; };
 		CCBA0956295B99E60064F772 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA0955295B99E60064F772 /* HeaderView.swift */; };
 		CCBA095A295BB3090064F772 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CCBA0959295BB3090064F772 /* video.mp4 */; };
+		CCBD18A7296DEAAA006EF498 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBD18A6296DEAAA006EF498 /* CalendarCell.swift */; };
 		CCBE38B6296059FE00266022 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBE38B5296059FE00266022 /* Recipes.swift */; };
+		CCBF8167296E048600508664 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF8166296E048600508664 /* CalendarHelper.swift */; };
+		CCBF816C297028E800508664 /* WeeklyCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF816B297028E800508664 /* WeeklyCalendarViewController.swift */; };
+		CCBF816E29703C3200508664 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF816D29703C3200508664 /* AddEventViewController.swift */; };
+		CCBF81702970439A00508664 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF816F2970439A00508664 /* Event.swift */; };
+		CCBF8172297058C500508664 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF8171297058C500508664 /* EventTableViewCell.swift */; };
+		CCBF81752970754300508664 /* Even+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF81732970754300508664 /* Even+CoreDataClass.swift */; };
+		CCBF81762970754300508664 /* Even+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF81742970754300508664 /* Even+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +106,15 @@
 		CCB95C902967250C00DB4857 /* CookingGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingGuideCell.swift; sourceTree = "<group>"; };
 		CCBA0955295B99E60064F772 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		CCBA0959295BB3090064F772 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		CCBD18A6296DEAAA006EF498 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		CCBE38B5296059FE00266022 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
+		CCBF8166296E048600508664 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		CCBF816B297028E800508664 /* WeeklyCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCalendarViewController.swift; sourceTree = "<group>"; };
+		CCBF816D29703C3200508664 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		CCBF816F2970439A00508664 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		CCBF8171297058C500508664 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		CCBF81732970754300508664 /* Even+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Even+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CCBF81742970754300508664 /* Even+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Even+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +155,8 @@
 		CC9ABE7C2955DF4300EFF6C6 = {
 			isa = PBXGroup;
 			children = (
+				CCBF81732970754300508664 /* Even+CoreDataClass.swift */,
+				CCBF81742970754300508664 /* Even+CoreDataProperties.swift */,
 				CC9ABE882955DF4300EFF6C6 /* AppDelegate.swift */,
 				CC9ABE8A2955DF4300EFF6C6 /* SceneDelegate.swift */,
 				CC99D397296B25E200E116F6 /* TodoListItem */,
@@ -167,7 +185,7 @@
 				CCBA0954295B99530064F772 /* Models */,
 				CC9B91F8295A4A2700D0A4D2 /* Extensions */,
 				CC9B91F3295A23F000D0A4D2 /* Views */,
-				CC9ABEB82955E48C00EFF6C6 /* Controllers */,
+				CCBF81682970285800508664 /* Controllers */,
 				CC9ABE912955DF4500EFF6C6 /* Assets.xcassets */,
 				CC9ABE932955DF4500EFF6C6 /* LaunchScreen.storyboard */,
 				CC9ABE962955DF4500EFF6C6 /* Info.plist */,
@@ -193,7 +211,7 @@
 			path = "My appUITests";
 			sourceTree = "<group>";
 		};
-		CC9ABEB82955E48C00EFF6C6 /* Controllers */ = {
+		CC9ABEB82955E48C00EFF6C6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				CC9ABE8C2955DF4300EFF6C6 /* MainTabBarViewController.swift */,
@@ -201,9 +219,9 @@
 				CC9ABEBB2955E57E00EFF6C6 /* ShoppingViewController.swift */,
 				CC9ABEBD2955E5B300EFF6C6 /* PlannerViewController.swift */,
 				CC9ABEBF2955F9CC00EFF6C6 /* SettingsViewController.swift */,
-				CC9B91EA2956F89400D0A4D2 /* child view */,
+				CC9B91EA2956F89400D0A4D2 /* general */,
 			);
-			path = Controllers;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		CC9AE35629635CA300194318 /* RecipeViews */ = {
@@ -217,15 +235,17 @@
 			path = RecipeViews;
 			sourceTree = "<group>";
 		};
-		CC9B91EA2956F89400D0A4D2 /* child view */ = {
+		CC9B91EA2956F89400D0A4D2 /* general */ = {
 			isa = PBXGroup;
 			children = (
 				CC9B91EB2956F8D600D0A4D2 /* CategoriesViewController.swift */,
 				CC9B91EF2956F8FC00D0A4D2 /* FavoritesViewController.swift */,
 				CC9B91F12956F90E00D0A4D2 /* RecentViewController.swift */,
 				CC9AE3502962014F00194318 /* RecipeViewController.swift */,
+				CCBF816B297028E800508664 /* WeeklyCalendarViewController.swift */,
+				CCBF816D29703C3200508664 /* AddEventViewController.swift */,
 			);
-			path = "child view";
+			path = general;
 			sourceTree = "<group>";
 		};
 		CC9B91F3295A23F000D0A4D2 /* Views */ = {
@@ -235,7 +255,9 @@
 				CCBA0955295B99E60064F772 /* HeaderView.swift */,
 				CC9B7DF5296995DE006A67AA /* RecipeCollectionViewCell.swift */,
 				CC99D39A296C634B00E116F6 /* ShoppingTableViewCell.swift */,
+				CCBD18A6296DEAAA006EF498 /* CalendarCell.swift */,
 				CC9AE35629635CA300194318 /* RecipeViews */,
+				CCBF8171297058C500508664 /* EventTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -261,6 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				CC9B91F6295A48FB00D0A4D2 /* VideoPlayer.swift */,
+				CCBF8166296E048600508664 /* CalendarHelper.swift */,
+				CCBF816F2970439A00508664 /* Event.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -272,6 +296,14 @@
 				CCBE38B5296059FE00266022 /* Recipes.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		CCBF81682970285800508664 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CC9ABEB82955E48C00EFF6C6 /* Core */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,12 +438,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC9AE35529635C8900194318 /* RecipeInfoCell.swift in Sources */,
+				CCBF81702970439A00508664 /* Event.swift in Sources */,
+				CCBF816E29703C3200508664 /* AddEventViewController.swift in Sources */,
 				CCB95C912967250C00DB4857 /* CookingGuideCell.swift in Sources */,
 				CC9ABE8D2955DF4300EFF6C6 /* MainTabBarViewController.swift in Sources */,
 				CC9B91EC2956F8D600D0A4D2 /* CategoriesViewController.swift in Sources */,
+				CCBF816C297028E800508664 /* WeeklyCalendarViewController.swift in Sources */,
 				CC9B91F22956F90E00D0A4D2 /* RecentViewController.swift in Sources */,
 				CC99D39B296C634B00E116F6 /* ShoppingTableViewCell.swift in Sources */,
+				CCBD18A7296DEAAA006EF498 /* CalendarCell.swift in Sources */,
 				CC9AE35329621AC200194318 /* RecipeHeaderView.swift in Sources */,
+				CCBF81752970754300508664 /* Even+CoreDataClass.swift in Sources */,
 				CC9B91F5295A245600D0A4D2 /* CollectionViewTableViewCell.swift in Sources */,
 				CC9ABE892955DF4300EFF6C6 /* AppDelegate.swift in Sources */,
 				CC9E77E929689256003353A6 /* RecipeHeaderViewModel.swift in Sources */,
@@ -429,8 +466,11 @@
 				CC9B7DF6296995DE006A67AA /* RecipeCollectionViewCell.swift in Sources */,
 				CC9ABEBE2955E5B300EFF6C6 /* PlannerViewController.swift in Sources */,
 				CC99D395296B25A100E116F6 /* Item+CoreDataClass.swift in Sources */,
+				CCBF8172297058C500508664 /* EventTableViewCell.swift in Sources */,
+				CCBF8167296E048600508664 /* CalendarHelper.swift in Sources */,
 				CC9AE3512962014F00194318 /* RecipeViewController.swift in Sources */,
 				CC9ABEBA2955E4C000EFF6C6 /* HomeViewController.swift in Sources */,
+				CCBF81762970754300508664 /* Even+CoreDataProperties.swift in Sources */,
 				CC9B91F02956F8FC00D0A4D2 /* FavoritesViewController.swift in Sources */,
 				CC9ABEBC2955E57E00EFF6C6 /* ShoppingViewController.swift in Sources */,
 			);
@@ -530,7 +570,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -584,7 +624,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

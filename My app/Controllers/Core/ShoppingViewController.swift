@@ -32,6 +32,10 @@ class ShoppingViewController: UIViewController {
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(sender:)))
         tableView.addGestureRecognizer(longPress)
         longPress.minimumPressDuration = 0.6
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("ingredientAdded"), object: nil, queue: nil) {[weak self] _ in
+            DataPersistenceManager.shared.getAllItems()
+            self?.tableView.reloadData()
+        }
     }
     
     @objc private func longPress(sender: UILongPressGestureRecognizer){

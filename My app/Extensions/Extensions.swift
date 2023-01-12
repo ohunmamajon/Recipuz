@@ -41,5 +41,6 @@ extension String {
         attributeString.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSRange(location: 0, length: attributeString.length))
         return attributeString
        }
+    
+    
 }
-

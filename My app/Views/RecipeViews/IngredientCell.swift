@@ -26,15 +26,29 @@ class IngredientCell: UITableViewCell {
     
     
    let addButton : UIButton = {
-        let button = UIButton()
+       let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Buy", for: .normal)
-        button.setTitleColor(UIColor.label, for: .normal)
-        button.layer.borderWidth = 2
+       button.setTitle("Add", for: .normal)
+       button.backgroundColor = .systemGreen
+        button.layer.borderWidth = 1
+       button.tintColor = .white
         button.layer.cornerRadius = 8
+       button.layer.masksToBounds = true
+       button.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
         button.layer.borderColor = UIColor.label.cgColor
         return button
     }()
+    
+    @objc func addButtonPressed(_ sender: UIButton){
+        sender.alpha = 0.5
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2){
+            sender.alpha = 1.0
+        }
+        
+        DataPersistenceManager.shared.createItem(name: ingredientLabel.text ?? "")
+        NotificationCenter.default.post(name:NSNotification.Name( "ingredientAdded"), object: nil)
+    }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         if (traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection)){
