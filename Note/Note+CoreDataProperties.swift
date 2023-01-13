@@ -1,5 +1,5 @@
 //
-//  Even+CoreDataProperties.swift
+//  Note+CoreDataProperties.swift
 //  My app
 //
 //  Created by Okhunjon Mamajonov on 2023/01/13.
@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 
-extension Even {
+extension Note {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Even> {
-        return NSFetchRequest<Even>(entityName: "Even")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Note> {
+        return NSFetchRequest<Note>(entityName: "Note")
     }
 
     @NSManaged public var id: Int64
@@ -22,6 +22,6 @@ extension Even {
 
 }
 
-extension Even : Identifiable {
+extension Note : Identifiable {
 
 }

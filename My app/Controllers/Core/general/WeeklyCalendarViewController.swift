@@ -149,7 +149,7 @@ class WeeklyCalendarViewController: UIViewController {
     let tableView : UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.register(EventTableViewCell.self, forCellReuseIdentifier: EventTableViewCell.identifier)
+        table.register(NoteTableViewCell.self, forCellReuseIdentifier: NoteTableViewCell.identifier)
         return table
     }()
     
@@ -175,6 +175,11 @@ class WeeklyCalendarViewController: UIViewController {
         collectionView.dataSource = self
         tableView.delegate = self
         tableView.dataSource = self
+        NoteDataPersistenceManager.shared.getAllNotes()
+        tableView.reloadData()
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(sender:)))
+        tableView.addGestureRecognizer(longPress)
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
         view.backgroundColor = .systemBackground
         AppOrientationUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
@@ -191,6 +196,37 @@ class WeeklyCalendarViewController: UIViewController {
     @objc func didTapAdd(){
         let vc  = AddEventViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func longPress(sender: UILongPressGestureRecognizer){
+        if sender.state == .began {
+            let touchPoint = sender.location(in: tableView)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint){
+                let item = NoteDataPersistenceManager.shared.NotesForDate(date: selectedDate)[indexPath.row]
+                let sheet = UIAlertController(title: "Edit", message: nil, preferredStyle: .actionSheet)
+                
+                sheet.addAction(UIAlertAction.init(title: "Cancel", style: .cancel))
+                sheet.addAction(UIAlertAction.init(title: "Edit", style: .default, handler: { [weak self] _ in
+                    let alert = UIAlertController(title: "Edit Item", message: "Edit your item", preferredStyle: .alert)
+                    
+                    alert.addTextField(configurationHandler: nil)
+                    alert.textFields?.first?.text  = item.name
+                    alert.addAction(UIAlertAction.init(title: "Save", style: .cancel, handler: {[weak self] _ in
+                        guard let field = alert.textFields?.first, let newName = field.text, !newName.isEmpty else {
+                            return
+                        }
+                        NoteDataPersistenceManager.shared.updateNote(note: item, newName: newName)
+                        self?.tableView.reloadData()
+                    }))
+                    self?.present(alert, animated: true)
+                }))
+                sheet.addAction(UIAlertAction.init(title: "Delete", style: .destructive, handler: {[weak self] _  in
+                    NoteDataPersistenceManager.shared.deleteNote(note: item)
+                    self?.tableView.reloadData()
+                }))
+                present(sheet, animated: true)
+            }
+        }
     }
    
     func setWeekView(){
@@ -220,7 +256,6 @@ class WeeklyCalendarViewController: UIViewController {
         weekStack.topAnchor.constraint(equalTo: topStack.bottomAnchor).isActive = true
         weekStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
         weekStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
-        weekStack.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         weekStack.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         collectionView.topAnchor.constraint(equalToSystemSpacingBelow: weekStack.bottomAnchor, multiplier: 1).isActive = true
@@ -269,18 +304,19 @@ class WeeklyCalendarViewController: UIViewController {
 
 extension WeeklyCalendarViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Event().eventsForDate(date: selectedDate).count
+        return NoteDataPersistenceManager.shared.NotesForDate(date: selectedDate).count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: EventTableViewCell.identifier, for: indexPath) as! EventTableViewCell
-        let event = Event().eventsForDate(date: selectedDate)[indexPath.row]
-        cell.label.text = "📝 " + event.name + "  🕙 " + CalendarHelper().timeString(date: event.date)
+        let cell = tableView.dequeueReusableCell(withIdentifier: NoteTableViewCell.identifier, for: indexPath) as! NoteTableViewCell
+        let note = NoteDataPersistenceManager.shared.NotesForDate(date: selectedDate)[indexPath.row]
+        cell.label.text = "📝 " + note.name! + "  🕙 " + CalendarHelper().timeString(date: note.date!)
         return cell
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableView.reloadData()
+        collectionView.reloadData()
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
       return UITableView.automaticDimension
@@ -288,4 +324,18 @@ extension WeeklyCalendarViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let note = NoteDataPersistenceManager.shared.NotesForDate(date: selectedDate)[indexPath.row]
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            NoteDataPersistenceManager.shared.deleteNote(note: note)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+    }
+    
 }

@@ -7,9 +7,9 @@
 
 import UIKit
 
-class EventTableViewCell: UITableViewCell {
+class NoteTableViewCell: UITableViewCell {
     
-    static let identifier = "EventTableViewCell"
+    static let identifier = "NoteTableViewCell"
  
     let label : UILabel = {
        let label = UILabel()
@@ -28,8 +28,8 @@ class EventTableViewCell: UITableViewCell {
         
         label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5).isActive = true
         label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5).isActive = true
-        label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
-        label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
+        label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
+        label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

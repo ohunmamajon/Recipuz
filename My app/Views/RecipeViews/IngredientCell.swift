@@ -46,7 +46,7 @@ class IngredientCell: UITableViewCell {
             sender.alpha = 1.0
         }
         
-        DataPersistenceManager.shared.createItem(name: ingredientLabel.text ?? "")
+        ItemDataPersistenceManager.shared.createItem(name: ingredientLabel.text ?? "")
         NotificationCenter.default.post(name:NSNotification.Name( "ingredientAdded"), object: nil)
     }
     

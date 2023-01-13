@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CC99D395296B25A100E116F6 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99D393296B25A100E116F6 /* Item+CoreDataClass.swift */; };
 		CC99D396296B25A100E116F6 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99D394296B25A100E116F6 /* Item+CoreDataProperties.swift */; };
-		CC99D399296B3D9300E116F6 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99D398296B3D9300E116F6 /* DataPersistenceManager.swift */; };
+		CC99D399296B3D9300E116F6 /* ItemDataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99D398296B3D9300E116F6 /* ItemDataPersistenceManager.swift */; };
 		CC99D39B296C634B00E116F6 /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99D39A296C634B00E116F6 /* ShoppingTableViewCell.swift */; };
 		CC9ABE892955DF4300EFF6C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9ABE882955DF4300EFF6C6 /* AppDelegate.swift */; };
 		CC9ABE8B2955DF4300EFF6C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9ABE8A2955DF4300EFF6C6 /* SceneDelegate.swift */; };
@@ -46,9 +46,10 @@
 		CCBF816C297028E800508664 /* WeeklyCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF816B297028E800508664 /* WeeklyCalendarViewController.swift */; };
 		CCBF816E29703C3200508664 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF816D29703C3200508664 /* AddEventViewController.swift */; };
 		CCBF81702970439A00508664 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF816F2970439A00508664 /* Event.swift */; };
-		CCBF8172297058C500508664 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF8171297058C500508664 /* EventTableViewCell.swift */; };
-		CCBF81752970754300508664 /* Even+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF81732970754300508664 /* Even+CoreDataClass.swift */; };
-		CCBF81762970754300508664 /* Even+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF81742970754300508664 /* Even+CoreDataProperties.swift */; };
+		CCBF8172297058C500508664 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF8171297058C500508664 /* NoteTableViewCell.swift */; };
+		CCBF817B29717FAE00508664 /* NoteDataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF817A29717FAE00508664 /* NoteDataPersistenceManager.swift */; };
+		CCBF817E297181AB00508664 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF817C297181AB00508664 /* Note+CoreDataClass.swift */; };
+		CCBF817F297181AB00508664 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF817D297181AB00508664 /* Note+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +72,7 @@
 /* Begin PBXFileReference section */
 		CC99D393296B25A100E116F6 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CC99D394296B25A100E116F6 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		CC99D398296B3D9300E116F6 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
+		CC99D398296B3D9300E116F6 /* ItemDataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataPersistenceManager.swift; sourceTree = "<group>"; };
 		CC99D39A296C634B00E116F6 /* ShoppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewCell.swift; sourceTree = "<group>"; };
 		CC9ABE852955DF4300EFF6C6 /* My app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC9ABE882955DF4300EFF6C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,9 +113,10 @@
 		CCBF816B297028E800508664 /* WeeklyCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCalendarViewController.swift; sourceTree = "<group>"; };
 		CCBF816D29703C3200508664 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		CCBF816F2970439A00508664 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		CCBF8171297058C500508664 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
-		CCBF81732970754300508664 /* Even+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Even+CoreDataClass.swift"; sourceTree = "<group>"; };
-		CCBF81742970754300508664 /* Even+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Even+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CCBF8171297058C500508664 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		CCBF817A29717FAE00508664 /* NoteDataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDataPersistenceManager.swift; sourceTree = "<group>"; };
+		CCBF817C297181AB00508664 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CCBF817D297181AB00508664 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,8 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				CC99D393296B25A100E116F6 /* Item+CoreDataClass.swift */,
-				CC99D398296B3D9300E116F6 /* DataPersistenceManager.swift */,
 				CC99D394296B25A100E116F6 /* Item+CoreDataProperties.swift */,
+				CC99D398296B3D9300E116F6 /* ItemDataPersistenceManager.swift */,
 			);
 			path = TodoListItem;
 			sourceTree = "<group>";
@@ -155,10 +157,9 @@
 		CC9ABE7C2955DF4300EFF6C6 = {
 			isa = PBXGroup;
 			children = (
-				CCBF81732970754300508664 /* Even+CoreDataClass.swift */,
-				CCBF81742970754300508664 /* Even+CoreDataProperties.swift */,
 				CC9ABE882955DF4300EFF6C6 /* AppDelegate.swift */,
 				CC9ABE8A2955DF4300EFF6C6 /* SceneDelegate.swift */,
+				CCBF817929717F6900508664 /* Note */,
 				CC99D397296B25E200E116F6 /* TodoListItem */,
 				CCBA095B295BD47A0064F772 /* Resources */,
 				CC9ABE872955DF4300EFF6C6 /* My app */,
@@ -257,7 +258,7 @@
 				CC99D39A296C634B00E116F6 /* ShoppingTableViewCell.swift */,
 				CCBD18A6296DEAAA006EF498 /* CalendarCell.swift */,
 				CC9AE35629635CA300194318 /* RecipeViews */,
-				CCBF8171297058C500508664 /* EventTableViewCell.swift */,
+				CCBF8171297058C500508664 /* NoteTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +305,16 @@
 				CC9ABEB82955E48C00EFF6C6 /* Core */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CCBF817929717F6900508664 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				CCBF817C297181AB00508664 /* Note+CoreDataClass.swift */,
+				CCBF817D297181AB00508664 /* Note+CoreDataProperties.swift */,
+				CCBF817A29717FAE00508664 /* NoteDataPersistenceManager.swift */,
+			);
+			path = Note;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,12 +454,13 @@
 				CCB95C912967250C00DB4857 /* CookingGuideCell.swift in Sources */,
 				CC9ABE8D2955DF4300EFF6C6 /* MainTabBarViewController.swift in Sources */,
 				CC9B91EC2956F8D600D0A4D2 /* CategoriesViewController.swift in Sources */,
+				CCBF817B29717FAE00508664 /* NoteDataPersistenceManager.swift in Sources */,
 				CCBF816C297028E800508664 /* WeeklyCalendarViewController.swift in Sources */,
 				CC9B91F22956F90E00D0A4D2 /* RecentViewController.swift in Sources */,
 				CC99D39B296C634B00E116F6 /* ShoppingTableViewCell.swift in Sources */,
+				CCBF817F297181AB00508664 /* Note+CoreDataProperties.swift in Sources */,
 				CCBD18A7296DEAAA006EF498 /* CalendarCell.swift in Sources */,
 				CC9AE35329621AC200194318 /* RecipeHeaderView.swift in Sources */,
-				CCBF81752970754300508664 /* Even+CoreDataClass.swift in Sources */,
 				CC9B91F5295A245600D0A4D2 /* CollectionViewTableViewCell.swift in Sources */,
 				CC9ABE892955DF4300EFF6C6 /* AppDelegate.swift in Sources */,
 				CC9E77E929689256003353A6 /* RecipeHeaderViewModel.swift in Sources */,
@@ -461,16 +473,16 @@
 				CCB95C8F2964BD2B00DB4857 /* IngredientCell.swift in Sources */,
 				CCBA0956295B99E60064F772 /* HeaderView.swift in Sources */,
 				CCBE38B6296059FE00266022 /* Recipes.swift in Sources */,
-				CC99D399296B3D9300E116F6 /* DataPersistenceManager.swift in Sources */,
+				CC99D399296B3D9300E116F6 /* ItemDataPersistenceManager.swift in Sources */,
 				CC99D396296B25A100E116F6 /* Item+CoreDataProperties.swift in Sources */,
 				CC9B7DF6296995DE006A67AA /* RecipeCollectionViewCell.swift in Sources */,
 				CC9ABEBE2955E5B300EFF6C6 /* PlannerViewController.swift in Sources */,
 				CC99D395296B25A100E116F6 /* Item+CoreDataClass.swift in Sources */,
-				CCBF8172297058C500508664 /* EventTableViewCell.swift in Sources */,
+				CCBF8172297058C500508664 /* NoteTableViewCell.swift in Sources */,
 				CCBF8167296E048600508664 /* CalendarHelper.swift in Sources */,
 				CC9AE3512962014F00194318 /* RecipeViewController.swift in Sources */,
 				CC9ABEBA2955E4C000EFF6C6 /* HomeViewController.swift in Sources */,
-				CCBF81762970754300508664 /* Even+CoreDataProperties.swift in Sources */,
+				CCBF817E297181AB00508664 /* Note+CoreDataClass.swift in Sources */,
 				CC9B91F02956F8FC00D0A4D2 /* FavoritesViewController.swift in Sources */,
 				CC9ABEBC2955E57E00EFF6C6 /* ShoppingViewController.swift in Sources */,
 			);

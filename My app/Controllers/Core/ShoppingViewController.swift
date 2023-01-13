@@ -22,7 +22,7 @@ class ShoppingViewController: UIViewController {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        DataPersistenceManager.shared.getAllItems()
+        ItemDataPersistenceManager.shared.getAllItems()
         tableView.frame = view.bounds
         tableView.autoresizingMask =  .flexibleWidth
         title = "Shopping List"
@@ -33,7 +33,7 @@ class ShoppingViewController: UIViewController {
         tableView.addGestureRecognizer(longPress)
         longPress.minimumPressDuration = 0.6
         NotificationCenter.default.addObserver(forName: NSNotification.Name("ingredientAdded"), object: nil, queue: nil) {[weak self] _ in
-            DataPersistenceManager.shared.getAllItems()
+            ItemDataPersistenceManager.shared.getAllItems()
             self?.tableView.reloadData()
         }
     }
@@ -42,7 +42,7 @@ class ShoppingViewController: UIViewController {
         if sender.state == .began {
             let touchPoint = sender.location(in: tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint){
-                let item = DataPersistenceManager.shared.models[indexPath.row]
+                let item = ItemDataPersistenceManager.shared.models[indexPath.row]
                 let sheet = UIAlertController(title: "Edit", message: nil, preferredStyle: .actionSheet)
                 
                 sheet.addAction(UIAlertAction.init(title: "Cancel", style: .cancel))
@@ -55,13 +55,13 @@ class ShoppingViewController: UIViewController {
                         guard let field = alert.textFields?.first, let newName = field.text, !newName.isEmpty else {
                             return
                         }
-                        DataPersistenceManager.shared.updateItem(item: item, newName: newName)
+                        ItemDataPersistenceManager.shared.updateItem(item: item, newName: newName)
                         self?.tableView.reloadData()
                     }))
                     self?.present(alert, animated: true)
                 }))
                 sheet.addAction(UIAlertAction.init(title: "Delete", style: .destructive, handler: {[weak self] _  in
-                    DataPersistenceManager.shared.deleteItem(item: item)
+                    ItemDataPersistenceManager.shared.deleteItem(item: item)
                     self?.tableView.reloadData()
                 }))
                 present(sheet, animated: true)
@@ -78,7 +78,7 @@ class ShoppingViewController: UIViewController {
             guard let field = alert.textFields?.first, let text = field.text, !text.isEmpty else {
                 return
             }
-            DataPersistenceManager.shared.createItem(name: text)
+            ItemDataPersistenceManager.shared.createItem(name: text)
             self.tableView.reloadData()
         }))
         present(alert, animated: true)
@@ -87,12 +87,12 @@ class ShoppingViewController: UIViewController {
 }
 extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return DataPersistenceManager.shared.models.count
+            return ItemDataPersistenceManager.shared.models.count
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: ShoppingTableViewCell.identifier, for: indexPath) as! ShoppingTableViewCell
-            let model = DataPersistenceManager.shared.models[indexPath.row]
+            let model = ItemDataPersistenceManager.shared.models[indexPath.row]
             cell.label.attributedText = cell.label.text?.removeStrikeThrough()
             cell.label.text = model.name
             let newImage = UIImage(systemName: "checkmark.circle.fill")!
@@ -114,8 +114,8 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
         }
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
-            let item = DataPersistenceManager.shared.models[indexPath.row]
-            DataPersistenceManager.shared.updateDone(item: item)
+            let item = ItemDataPersistenceManager.shared.models[indexPath.row]
+            ItemDataPersistenceManager.shared.updateDone(item: item)
             tableView.reloadData()
             
         }
@@ -127,12 +127,12 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
             return .delete
         }
         func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            let item = DataPersistenceManager.shared.models[indexPath.row]
+            let item = ItemDataPersistenceManager.shared.models[indexPath.row]
             if editingStyle == .delete {
                 tableView.beginUpdates()
                 
                 tableView.deleteRows(at: [indexPath], with: .fade)
-                DataPersistenceManager.shared.deleteItem(item: item)
+                ItemDataPersistenceManager.shared.deleteItem(item: item)
                 
                 tableView.endUpdates()
             }

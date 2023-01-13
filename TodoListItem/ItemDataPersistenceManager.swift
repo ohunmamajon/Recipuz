@@ -8,8 +8,8 @@
 import Foundation
 import CoreData
 import UIKit
-struct DataPersistenceManager{
-    static var shared = DataPersistenceManager()
+struct ItemDataPersistenceManager{
+    static var shared = ItemDataPersistenceManager()
     var models = [Item]()
     
     let context = (UIApplication.shared.delegate as!  AppDelegate).persistentContainer.viewContext
