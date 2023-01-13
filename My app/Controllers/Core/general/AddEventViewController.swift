@@ -15,7 +15,7 @@ class AddEventViewController: UIViewController {
         textField.textAlignment = .center
         textField.layer.cornerRadius = 15
         textField.layer.borderColor = UIColor.label.cgColor
-        textField.placeholder = "enter event"
+        textField.placeholder = "Enter a note"
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -55,7 +55,7 @@ class AddEventViewController: UIViewController {
     }
 
     private func applyConstraints(){
-        textField.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1).isActive = true
+        textField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: view.frame.width/3).isActive = true
         textField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9).isActive = true
         textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         textField.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true

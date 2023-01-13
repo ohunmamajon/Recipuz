@@ -28,8 +28,8 @@ class NoteTableViewCell: UITableViewCell {
         
         label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5).isActive = true
         label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5).isActive = true
-        label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
-        label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+        label.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        label.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

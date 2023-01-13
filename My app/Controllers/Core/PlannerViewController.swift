@@ -22,30 +22,30 @@ class PlannerViewController: UIViewController {
     }()
     
     let tableView : UITableView = {
-        let table = UITableView()
+        let table = UITableView(frame: .zero, style: .grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(NoteTableViewCell.self, forCellReuseIdentifier: NoteTableViewCell.identifier)
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return table
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
-        view.addSubview(datePicker)
-        applyConstraints()
         datePicker.setDate(selectedDate, animated: true)
         datePicker.addTarget(self, action: #selector(datePicked), for: .valueChanged)
         tableView.delegate = self
         tableView.dataSource = self
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(sender:)))
         tableView.addGestureRecognizer(longPress)
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Week", style: .done, target: self, action: #selector(goToWeek))
+    
         navigationItem.rightBarButtonItem =  UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
         title = "Plan your day"
         view.backgroundColor = .systemBackground
         NoteDataPersistenceManager.shared.getAllNotes()
         tableView.reloadData()
+        datePicker.widthAnchor.constraint(equalToConstant:
+                                            view.frame.width).isActive = true
     
     }
     
@@ -80,10 +80,6 @@ class PlannerViewController: UIViewController {
         }
     }
  
-    @objc func goToWeek(){
-        let vc = WeeklyCalendarViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
     
     @objc func didTapAdd(){
         let vc  = AddEventViewController()
@@ -100,18 +96,12 @@ class PlannerViewController: UIViewController {
 
     
     
-    
-    private func applyConstraints (){
-      
-        datePicker.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        datePicker.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
-        datePicker.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-
-        
-    }
+   
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tableView.frame = CGRect(x: 0, y: datePicker.frame.maxY, width: view.frame.width, height: 400)
+        tableView.frame = view.bounds
+        datePicker.frame = view.bounds
+       
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -119,23 +109,81 @@ class PlannerViewController: UIViewController {
         datePicker.setDate(selectedDate, animated: true)
             tableView.reloadData()
     }
+    
+    
 }
+
 
 extension PlannerViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return NoteDataPersistenceManager.shared.NotesForDate(date: selectedDate).count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NoteTableViewCell.identifier, for: indexPath) as! NoteTableViewCell
-        let note = NoteDataPersistenceManager.shared.NotesForDate(date: selectedDate)[indexPath.row]
-        cell.label.text = "📝 " + note.name! + "  🕙 " + CalendarHelper().timeString(date: note.date!)
-        return cell
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
     }
     
- 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        }
+        else {
+            return NoteDataPersistenceManager.shared.NotesForDate(date: selectedDate).count
+        }
+         
+        
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        tableView.backgroundColor = .systemBackground
+        
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            cell.contentView.addSubview(datePicker)
+            cell.selectionStyle = .none
+            cell.contentView.backgroundColor = .systemBackground
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: NoteTableViewCell.identifier, for: indexPath) as! NoteTableViewCell
+            let note = NoteDataPersistenceManager.shared.NotesForDate(date: selectedDate)[indexPath.row]
+            cell.label.text = "📝 " + note.name! + "  🕙 " + CalendarHelper().timeString(date: note.date!)
+            cell.contentView.backgroundColor = .systemBackground
+        
+            return cell
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+       
+            guard let header = view as? UITableViewHeaderFooterView else {return}
+        header.textLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
+            header.textLabel?.textColor = .label
+            header.textLabel?.text =  header.textLabel?.text?.capitalizeFirstLetter()
+            header.contentView.backgroundColor = .systemBackground
+        
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            if !NoteDataPersistenceManager.shared.NotesForDate(date: selectedDate).isEmpty  {
+                return "Notes"
+            }
+            else{
+                return "You have no notes for the day"
+            }
+                
+        }
+        else {
+            return ""
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-      return UITableView.automaticDimension
+        if indexPath.section == 0 {
+            return datePicker.frame.height
+        }
+        else {
+            return UITableView.automaticDimension
+        }
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60

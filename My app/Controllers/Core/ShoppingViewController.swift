@@ -10,7 +10,6 @@ import UIKit
 class ShoppingViewController: UIViewController {
     
     
-    
     let tableView: UITableView = {
         let table = UITableView()
         table.register(ShoppingTableViewCell.self, forCellReuseIdentifier: ShoppingTableViewCell.identifier)
@@ -27,7 +26,6 @@ class ShoppingViewController: UIViewController {
         tableView.autoresizingMask =  .flexibleWidth
         title = "Shopping List"
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(sender:)))
         tableView.addGestureRecognizer(longPress)

@@ -43,9 +43,7 @@
 		CCBD18A7296DEAAA006EF498 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBD18A6296DEAAA006EF498 /* CalendarCell.swift */; };
 		CCBE38B6296059FE00266022 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBE38B5296059FE00266022 /* Recipes.swift */; };
 		CCBF8167296E048600508664 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF8166296E048600508664 /* CalendarHelper.swift */; };
-		CCBF816C297028E800508664 /* WeeklyCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF816B297028E800508664 /* WeeklyCalendarViewController.swift */; };
 		CCBF816E29703C3200508664 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF816D29703C3200508664 /* AddEventViewController.swift */; };
-		CCBF81702970439A00508664 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF816F2970439A00508664 /* Event.swift */; };
 		CCBF8172297058C500508664 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF8171297058C500508664 /* NoteTableViewCell.swift */; };
 		CCBF817B29717FAE00508664 /* NoteDataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF817A29717FAE00508664 /* NoteDataPersistenceManager.swift */; };
 		CCBF817E297181AB00508664 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF817C297181AB00508664 /* Note+CoreDataClass.swift */; };
@@ -110,9 +108,7 @@
 		CCBD18A6296DEAAA006EF498 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		CCBE38B5296059FE00266022 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
 		CCBF8166296E048600508664 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
-		CCBF816B297028E800508664 /* WeeklyCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCalendarViewController.swift; sourceTree = "<group>"; };
 		CCBF816D29703C3200508664 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
-		CCBF816F2970439A00508664 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		CCBF8171297058C500508664 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		CCBF817A29717FAE00508664 /* NoteDataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDataPersistenceManager.swift; sourceTree = "<group>"; };
 		CCBF817C297181AB00508664 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -243,7 +239,6 @@
 				CC9B91EF2956F8FC00D0A4D2 /* FavoritesViewController.swift */,
 				CC9B91F12956F90E00D0A4D2 /* RecentViewController.swift */,
 				CC9AE3502962014F00194318 /* RecipeViewController.swift */,
-				CCBF816B297028E800508664 /* WeeklyCalendarViewController.swift */,
 				CCBF816D29703C3200508664 /* AddEventViewController.swift */,
 			);
 			path = general;
@@ -285,7 +280,6 @@
 			children = (
 				CC9B91F6295A48FB00D0A4D2 /* VideoPlayer.swift */,
 				CCBF8166296E048600508664 /* CalendarHelper.swift */,
-				CCBF816F2970439A00508664 /* Event.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -449,13 +443,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC9AE35529635C8900194318 /* RecipeInfoCell.swift in Sources */,
-				CCBF81702970439A00508664 /* Event.swift in Sources */,
 				CCBF816E29703C3200508664 /* AddEventViewController.swift in Sources */,
 				CCB95C912967250C00DB4857 /* CookingGuideCell.swift in Sources */,
 				CC9ABE8D2955DF4300EFF6C6 /* MainTabBarViewController.swift in Sources */,
 				CC9B91EC2956F8D600D0A4D2 /* CategoriesViewController.swift in Sources */,
 				CCBF817B29717FAE00508664 /* NoteDataPersistenceManager.swift in Sources */,
-				CCBF816C297028E800508664 /* WeeklyCalendarViewController.swift in Sources */,
 				CC9B91F22956F90E00D0A4D2 /* RecentViewController.swift in Sources */,
 				CC99D39B296C634B00E116F6 /* ShoppingTableViewCell.swift in Sources */,
 				CCBF817F297181AB00508664 /* Note+CoreDataProperties.swift in Sources */,

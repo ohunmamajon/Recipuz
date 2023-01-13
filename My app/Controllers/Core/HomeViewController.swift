@@ -11,7 +11,7 @@ import UIKit
 let categoriesVC = CategoriesViewController()
 let favoritesVC = FavoritesViewController()
 let recentVC = RecentViewController()
-
+let settingsVC = SettingsViewController()
 
 class HomeViewController: UIViewController {
     let items = ["Categories", "Favorites", "Recent"]
@@ -25,10 +25,12 @@ class HomeViewController: UIViewController {
         return view
     }()
     
+
+    
     override func viewDidLoad()  {
         super.viewDidLoad()
-        
-        
+    
+        settingsVC.checkSwitchState()
     
         haptic.prepare()
         view.backgroundColor = .systemBackground

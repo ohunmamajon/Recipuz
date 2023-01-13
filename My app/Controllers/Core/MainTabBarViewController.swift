@@ -11,7 +11,6 @@ import UIKit
 class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemPink
         bringTabBar()
        
     }
@@ -27,13 +26,12 @@ class MainTabBarViewController: UITabBarController {
         vc3.tabBarItem.image = UIImage(systemName: "calendar.badge.plus")
         vc4.tabBarItem.image = UIImage(systemName: "gear")
         
-        
+    
         
         vc1.title = "Home"
         vc2.title = "Shopping"
         vc3.title = "Planner"
         vc4.title = "Settings"
-        
         
        setViewControllers([vc1, vc2, vc3, vc4], animated: true)
         navigationController?.pushViewController(vc2, animated: true)
