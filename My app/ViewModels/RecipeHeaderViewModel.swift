@@ -8,5 +8,6 @@
 import Foundation
 import UIKit
 struct RecipeHeaderViewModel{
-    let image : UIImage
+    let imageName : String
+  
 }

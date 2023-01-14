@@ -32,6 +32,6 @@ class RecipeCollectionViewCell: UICollectionViewCell {
             imageView.frame = contentView.bounds
         }
     public func configure(with model: RecipeHeaderViewModel){
-        imageView.image = model.image
+        imageView.image = UIImage(named: model.imageName)
     }
 }

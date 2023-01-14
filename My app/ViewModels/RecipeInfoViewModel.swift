@@ -10,4 +10,6 @@ struct RecipeInfoViewModel {
     let serving : Int
     let preparationTime: Int
     let info: String
+    let recipeName: String
+    let imageName: String
 }

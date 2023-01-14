@@ -51,7 +51,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         cell.backgroundColor = .systemCyan
         cell.layer.cornerRadius = 10
         cell.clipsToBounds = true
-        cell.configure(with: RecipeHeaderViewModel(image: recipes[indexPath.row].image))
+        cell.configure(with: RecipeHeaderViewModel(imageName: recipes[indexPath.row].imageName))
         return cell
     
     }

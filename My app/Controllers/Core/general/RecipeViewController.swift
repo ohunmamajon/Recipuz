@@ -29,7 +29,7 @@ class RecipeViewController: UIViewController {
         recipeTable.delegate = self
         recipeTable.dataSource = self
         recipeHeader = RecipeHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 200))
-        recipeHeader?.configure(with: RecipeHeaderViewModel(image: recipe.image))
+        recipeHeader?.configure(with: RecipeHeaderViewModel(imageName: recipe.imageName))
         recipeTable.tableHeaderView = recipeHeader
         
     }
@@ -63,7 +63,7 @@ extension RecipeViewController : UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: RecipeInfoCell.identifier, for: indexPath) as! RecipeInfoCell
             cell.selectionStyle = .none
-            cell.configure(with: RecipeInfoViewModel(serving: recipe.serving, preparationTime: recipe.preparationTime, info: recipe.info))
+            cell.configure(with: RecipeInfoViewModel(serving: recipe.serving, preparationTime: recipe.preparationTime, info: recipe.info, recipeName: recipe.title, imageName: recipe.imageName))
             tableView.separatorStyle = .none
             cell.backgroundColor = .systemBackground
             return cell

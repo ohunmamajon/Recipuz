@@ -9,7 +9,7 @@ import UIKit
 var selectedDate = Date()
 
 class PlannerViewController: UIViewController {
-
+    
     
     let datePicker: UIDatePicker = {
         let picker = UIDatePicker()
@@ -38,7 +38,7 @@ class PlannerViewController: UIViewController {
         tableView.dataSource = self
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(sender:)))
         tableView.addGestureRecognizer(longPress)
-    
+        
         navigationItem.rightBarButtonItem =  UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
         title = "Plan your day"
         view.backgroundColor = .systemBackground
@@ -46,7 +46,7 @@ class PlannerViewController: UIViewController {
         tableView.reloadData()
         datePicker.widthAnchor.constraint(equalToConstant:
                                             view.frame.width).isActive = true
-    
+        
     }
     
     @objc private func longPress(sender: UILongPressGestureRecognizer){
@@ -79,7 +79,7 @@ class PlannerViewController: UIViewController {
             }
         }
     }
- 
+    
     
     @objc func didTapAdd(){
         let vc  = AddEventViewController()
@@ -93,23 +93,23 @@ class PlannerViewController: UIViewController {
         }
     }
     
-
     
-    
-   
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
-        datePicker.frame = view.bounds
-       
     }
-
+    
+    
+    
+    private var windowInterfaceOrientation: UIInterfaceOrientation? {
+        return UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         datePicker.setDate(selectedDate, animated: true)
-            tableView.reloadData()
+        tableView.reloadData()
     }
-    
     
 }
 
@@ -164,11 +164,12 @@ extension PlannerViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 1 {
-            if !NoteDataPersistenceManager.shared.NotesForDate(date: selectedDate).isEmpty  {
-                return "Notes"
+            if NoteDataPersistenceManager.shared.NotesForDate(date: selectedDate).isEmpty  {
+                
+                return "No notes for the day"
             }
             else{
-                return "You have no notes for the day"
+                return "Notes"
             }
                 
         }
@@ -199,9 +200,10 @@ extension PlannerViewController: UITableViewDelegate, UITableViewDataSource {
 
             NoteDataPersistenceManager.shared.deleteNote(note: note)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
+          
             tableView.endUpdates()
         }
+        tableView.reloadData()
     }
     
 }

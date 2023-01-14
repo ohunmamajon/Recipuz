@@ -9,6 +9,8 @@ import UIKit
 
 class RecipeInfoCell: UITableViewCell {
    static let identifier = "RecipeInfoCell"
+    var recipeName : String?
+    var imageName: String?
     let info: UILabel = {
         let label = UILabel()
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
@@ -47,6 +49,42 @@ class RecipeInfoCell: UITableViewCell {
         return image
     }()
     
+    
+    let heartButton : UIButton = {
+        let button = UIButton(type: .system)
+         button.translatesAutoresizingMaskIntoConstraints = false
+       
+        button.addTarget(self, action: #selector(heartButtonPressed), for: .touchUpInside)
+         return button
+     }()
+    
+    private func configureHeartButton () {
+      
+        let isLiked = FavoriteRecipeDataPerManager.shared.CheckIfLiked(recipeName: recipeName ?? "")
+        if (isLiked) {
+            heartButton.tintColor = .systemRed
+            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }
+        else {
+            heartButton.tintColor = .label
+            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+    }
+    
+    @objc func heartButtonPressed(){
+        let isLiked = FavoriteRecipeDataPerManager.shared.CheckIfLiked(recipeName: recipeName ?? "")
+        if (isLiked) {
+            heartButton.tintColor = .label
+            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            FavoriteRecipeDataPerManager.shared.deleteRecipe(recipeName: recipeName!)
+        }
+        else {
+            heartButton.tintColor = .systemRed
+            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            FavoriteRecipeDataPerManager.shared.createRecipe(imageName: imageName!, recipeName: recipeName!)
+        }
+       
+    }
    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -56,8 +94,10 @@ class RecipeInfoCell: UITableViewCell {
         contentView.addSubview(preparationTime)
         contentView.addSubview(personIcon)
         contentView.addSubview(timerIcon)
+        contentView.addSubview(heartButton)
         contentView.addSubview(stackView)
          applyConstraints()
+    
         
     }
     lazy var stackView1: UIStackView = {
@@ -86,14 +126,14 @@ class RecipeInfoCell: UITableViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.addArrangedSubview(stackView1)
         stack.addArrangedSubview(stackView2)
+        stack.addArrangedSubview(heartButton)
         return stack
     }()
 
     private func applyConstraints(){
       
         stackView.centerXAnchor.constraint(equalTo:  contentView.centerXAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
-        
+        stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true        
 
         info.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
         info.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10).isActive = true
@@ -105,12 +145,18 @@ class RecipeInfoCell: UITableViewCell {
         info.text = model.info
         serving.text = String(model.serving) + " kishi"
         preparationTime.text = String(model.preparationTime) + " minut"
+        recipeName = model.recipeName
+        imageName = model.imageName
     }
    
     
     required init(coder: NSCoder) {
         fatalError()
         
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        configureHeartButton()
     }
 
 }
