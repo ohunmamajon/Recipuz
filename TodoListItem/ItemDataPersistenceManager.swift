@@ -17,10 +17,13 @@ struct ItemDataPersistenceManager{
     
     
     mutating func getAllItems(){
+        let sort = NSSortDescriptor(key: "createdDate", ascending: false)
+        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        request.sortDescriptors = [sort]
 
         do {
-            models = try context.fetch(Item.fetchRequest())
-
+            models = try context.fetch(request)
+            
         } catch {
             print(error.localizedDescription)
         }

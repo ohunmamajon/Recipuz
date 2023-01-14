@@ -19,9 +19,13 @@ struct FavoriteRecipeDataPerManager {
 
     
     mutating func getAllRecipes(){
-
+        
+        let sort = NSSortDescriptor(key: "date", ascending: false)
+        let request : NSFetchRequest<FavoriteRecipe> = FavoriteRecipe.fetchRequest()
+        request.sortDescriptors = [sort]
+        
         do {
-            recipeList = try context.fetch(FavoriteRecipe.fetchRequest())
+            recipeList = try context.fetch(request)
 
         } catch {
             print(error.localizedDescription)
@@ -33,6 +37,7 @@ struct FavoriteRecipeDataPerManager {
         newRecipe.imageName = imageName
         newRecipe.recipeName = recipeName
         newRecipe.isLiked = true
+        newRecipe.date = Date()
         do {
            try context.save()
             getAllRecipes()

@@ -11,30 +11,38 @@ class NoteTableViewCell: UITableViewCell {
     
     static let identifier = "NoteTableViewCell"
  
-    let label : UILabel = {
+    let noteLabel  : UILabel = {
        let label = UILabel()
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .label
         return label
     }()
   
+   
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-       applyConstaints()
+        applyConstaints()
     }
+    
     private func applyConstaints(){
-        
-        label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5).isActive = true
-        label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5).isActive = true
-        label.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        label.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+       
+        noteLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 2).isActive = true
+        noteLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -2).isActive = true
+        noteLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
+        noteLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
+    
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(label)
+       
+        contentView.addSubview(noteLabel)
+    
+       
     }
     required init(coder: NSCoder) {
         fatalError()

@@ -19,6 +19,7 @@ extension FavoriteRecipe {
     @NSManaged public var imageName: String?
     @NSManaged public var recipeName: String?
     @NSManaged public var isLiked: Bool
+    @NSManaged public var date: Date?
 }
 
 extension FavoriteRecipe : Identifiable {

@@ -33,9 +33,11 @@ struct NoteDataPersistenceManager {
 
     
     mutating func getAllNotes(){
-
+        let sort = NSSortDescriptor(key: "date", ascending: true)
+        let request : NSFetchRequest<Note> = Note.fetchRequest()
+        request.sortDescriptors = [sort]
         do {
-            noteList = try context.fetch(Note.fetchRequest())
+            noteList = try context.fetch(request)
 
         } catch {
             print(error.localizedDescription)

@@ -110,7 +110,10 @@ class PlannerViewController: UIViewController {
         datePicker.setDate(selectedDate, animated: true)
         tableView.reloadData()
     }
-    
+ 
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 }
 
 
@@ -144,7 +147,8 @@ extension PlannerViewController: UITableViewDelegate, UITableViewDataSource {
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: NoteTableViewCell.identifier, for: indexPath) as! NoteTableViewCell
             let note = NoteDataPersistenceManager.shared.NotesForDate(date: selectedDate)[indexPath.row]
-            cell.label.text = "📝 " + note.name! + "  🕙 " + CalendarHelper().timeString(date: note.date!)
+            cell.noteLabel.text = "📝 " + note.name! + "   " + CalendarHelper().timeString(date: note.date!)
+             
             cell.contentView.backgroundColor = .systemBackground
         
             return cell
@@ -182,9 +186,10 @@ extension PlannerViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             return datePicker.frame.height
         }
-        else {
+        else if indexPath.section == 1 {
             return UITableView.automaticDimension
         }
+        else {return 10}
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
