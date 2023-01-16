@@ -109,5 +109,14 @@ extension CategoriesViewController: CollectionViewTableViewCellDelegate {
         let vc = RecipeViewController()
         vc.configure(with: currentModel)
         self.navigationController?.pushViewController(vc, animated: true)
+        
+        let isRecent = RecentDataPerManager.shared.checkIfRecent(recipeName: currentModel.title)
+        if (isRecent) {
+            RecentDataPerManager.shared.makeMostRecent(recipeName: currentModel.title)
+        }
+        else {
+            RecentDataPerManager.shared.createRecent(imageName: currentModel.imageName, recipeName: currentModel.title)
+        }
     }
+    
 }

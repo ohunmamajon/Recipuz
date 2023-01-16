@@ -53,6 +53,9 @@
 		CCC81D7A2973197D00A6B61E /* FavoriteRecipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC81D782973197D00A6B61E /* FavoriteRecipe+CoreDataProperties.swift */; };
 		CCC81D7D297319E000A6B61E /* FavoriteRecipeDataPerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC81D7C297319E000A6B61E /* FavoriteRecipeDataPerManager.swift */; };
 		CCC81D7F297344BB00A6B61E /* FavoriteCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC81D7E297344BB00A6B61E /* FavoriteCellViewModel.swift */; };
+		FE63DD912975D08A00887EDD /* RecentRecipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE63DD8F2975D08A00887EDD /* RecentRecipe+CoreDataClass.swift */; };
+		FE63DD922975D08A00887EDD /* RecentRecipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE63DD902975D08A00887EDD /* RecentRecipe+CoreDataProperties.swift */; };
+		FE63DD952975D0DC00887EDD /* RecentDataPerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE63DD942975D0DC00887EDD /* RecentDataPerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +126,9 @@
 		CCC81D782973197D00A6B61E /* FavoriteRecipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteRecipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CCC81D7C297319E000A6B61E /* FavoriteRecipeDataPerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeDataPerManager.swift; sourceTree = "<group>"; };
 		CCC81D7E297344BB00A6B61E /* FavoriteCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCellViewModel.swift; sourceTree = "<group>"; };
+		FE63DD8F2975D08A00887EDD /* RecentRecipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentRecipe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FE63DD902975D08A00887EDD /* RecentRecipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentRecipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FE63DD942975D0DC00887EDD /* RecentDataPerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentDataPerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,7 @@
 			children = (
 				CC9ABE882955DF4300EFF6C6 /* AppDelegate.swift */,
 				CC9ABE8A2955DF4300EFF6C6 /* SceneDelegate.swift */,
+				FE63DD932975D09400887EDD /* Recent */,
 				CCC81D7B2973199A00A6B61E /* FavoriteRecipe */,
 				CCBF817929717F6900508664 /* Note */,
 				CC99D397296B25E200E116F6 /* TodoListItem */,
@@ -334,6 +341,16 @@
 			path = FavoriteRecipe;
 			sourceTree = "<group>";
 		};
+		FE63DD932975D09400887EDD /* Recent */ = {
+			isa = PBXGroup;
+			children = (
+				FE63DD8F2975D08A00887EDD /* RecentRecipe+CoreDataClass.swift */,
+				FE63DD902975D08A00887EDD /* RecentRecipe+CoreDataProperties.swift */,
+				FE63DD942975D0DC00887EDD /* RecentDataPerManager.swift */,
+			);
+			path = Recent;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -466,10 +483,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC9AE35529635C8900194318 /* RecipeInfoCell.swift in Sources */,
+				FE63DD912975D08A00887EDD /* RecentRecipe+CoreDataClass.swift in Sources */,
 				CCC81D73297314DF00A6B61E /* FavoritesTableViewCell.swift in Sources */,
 				CCC81D7F297344BB00A6B61E /* FavoriteCellViewModel.swift in Sources */,
 				CCBF816E29703C3200508664 /* AddEventViewController.swift in Sources */,
 				CCB95C912967250C00DB4857 /* CookingGuideCell.swift in Sources */,
+				FE63DD952975D0DC00887EDD /* RecentDataPerManager.swift in Sources */,
+				FE63DD922975D08A00887EDD /* RecentRecipe+CoreDataProperties.swift in Sources */,
 				CC9ABE8D2955DF4300EFF6C6 /* MainTabBarViewController.swift in Sources */,
 				CCC81D7D297319E000A6B61E /* FavoriteRecipeDataPerManager.swift in Sources */,
 				CC9B91EC2956F8D600D0A4D2 /* CategoriesViewController.swift in Sources */,

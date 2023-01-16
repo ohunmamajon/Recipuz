@@ -46,7 +46,7 @@ struct FavoriteRecipeDataPerManager {
         }
     }
     
-   
+  
     
     mutating func deleteRecipe(recipeName: String){
         
