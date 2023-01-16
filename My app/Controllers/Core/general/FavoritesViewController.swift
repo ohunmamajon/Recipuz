@@ -70,5 +70,13 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.endUpdates()
         }
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipeName = FavoriteRecipeDataPerManager.shared.recipeList[indexPath.row].recipeName!
+        let recipe = Recipes.shared.findRecipe(recipeName: recipeName)
+        
+        let vc = RecipeViewController()
+        vc.configure(with: recipe)
+        self.navigationController?.pushViewController(vc, animated: true)
     
+    }
 }

@@ -31,6 +31,31 @@ struct Recipe{
 struct Recipes{
     
     static let shared = Recipes()
+
+    func findRecipe(recipeName: String) -> Recipe {
+        var item : Recipe?
+        for recipe in uzbekMeals {
+            if recipeName == recipe.title {
+                item = recipe
+            }
+        }
+        for recipe in westernMeals {
+            if recipeName == recipe.title {
+                item = recipe
+            }
+        }
+        for recipe in desserts {
+            if recipeName == recipe.title {
+                item = recipe
+            }
+        }
+        for recipe in cakes {
+            if recipeName == recipe.title {
+                item = recipe
+            }
+        }
+        return item!
+    }
     
     let uzbekMeals: [Recipe] = [
    Recipe(title: "Palov", imageName:"palov", serving: 4, preparationTime: 60, info: "Osh eng mazali ovqat va u sizga besh xil turdagi vitaminlarni olibe keladi", ingredients: [Ingredients(name: "Guruch", amount: "600 gram" ),Ingredients(name: "Go`sht", amount: "300 gram" ),Ingredients(name: "Yog", amount: "250 gram" ), Ingredients(name: "Sabzi", amount: "2 dona" ),Ingredients(name: "Piyoz", amount: "1 dona" ), Ingredients(name: "No`xat", amount: "250 gram" ), Ingredients(name: "Sarimsoq", amount: "1 dona" ), Ingredients(name: "Zira", amount: "40 gram" )], cookingGuide: [CookingGuide(step: 1, guide: "Yogni qzit"), CookingGuide(step: 2, guide: "Piyozni qovur"), CookingGuide(step: 3, guide: "goshtni qovur"), CookingGuide(step: 4, guide: "Sabzini qovur")]),
