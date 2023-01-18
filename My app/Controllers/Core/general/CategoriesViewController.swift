@@ -75,9 +75,9 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         case Sections.WesternMeals.rawValue:
             cell.configure(with: Recipes.shared.westernMeals)
         case Sections.Desserts.rawValue:
-            cell.configure(with: Recipes.shared.desserts)
+            cell.configure(with: Recipes.shared.salads)
         case Sections.Cakes.rawValue:
-            cell.configure(with: Recipes.shared.cakes)
+            cell.configure(with: Recipes.shared.drinks)
         default:
             return UITableViewCell()
         }
