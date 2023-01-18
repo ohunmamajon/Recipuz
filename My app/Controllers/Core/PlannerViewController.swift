@@ -40,7 +40,8 @@ class PlannerViewController: UIViewController {
         tableView.addGestureRecognizer(longPress)
         
         navigationItem.rightBarButtonItem =  UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
-        title = "Plan your day"
+        title = "Planner"
+        navigationItem.rightBarButtonItem?.tintColor = .label
         view.backgroundColor = .systemBackground
         NoteDataPersistenceManager.shared.getAllNotes()
         tableView.reloadData()

@@ -32,14 +32,12 @@
 		CC9B91F02956F8FC00D0A4D2 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91EF2956F8FC00D0A4D2 /* FavoritesViewController.swift */; };
 		CC9B91F22956F90E00D0A4D2 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91F12956F90E00D0A4D2 /* RecentViewController.swift */; };
 		CC9B91F5295A245600D0A4D2 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91F4295A245600D0A4D2 /* CollectionViewTableViewCell.swift */; };
-		CC9B91F7295A48FB00D0A4D2 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91F6295A48FB00D0A4D2 /* VideoPlayer.swift */; };
 		CC9B91FA295A4A4500D0A4D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91F9295A4A4500D0A4D2 /* Extensions.swift */; };
 		CC9E77E4296841E4003353A6 /* RecipeInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9E77E3296841E4003353A6 /* RecipeInfoViewModel.swift */; };
 		CC9E77E929689256003353A6 /* RecipeHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9E77E829689256003353A6 /* RecipeHeaderViewModel.swift */; };
 		CCB95C8F2964BD2B00DB4857 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB95C8E2964BD2B00DB4857 /* IngredientCell.swift */; };
 		CCB95C912967250C00DB4857 /* CookingGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB95C902967250C00DB4857 /* CookingGuideCell.swift */; };
 		CCBA0956295B99E60064F772 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA0955295B99E60064F772 /* HeaderView.swift */; };
-		CCBA095A295BB3090064F772 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CCBA0959295BB3090064F772 /* video.mp4 */; };
 		CCBD18A7296DEAAA006EF498 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBD18A6296DEAAA006EF498 /* CalendarCell.swift */; };
 		CCBE38B6296059FE00266022 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBE38B5296059FE00266022 /* Recipes.swift */; };
 		CCBF8167296E048600508664 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF8166296E048600508664 /* CalendarHelper.swift */; };
@@ -48,6 +46,7 @@
 		CCBF817B29717FAE00508664 /* NoteDataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF817A29717FAE00508664 /* NoteDataPersistenceManager.swift */; };
 		CCBF817E297181AB00508664 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF817C297181AB00508664 /* Note+CoreDataClass.swift */; };
 		CCBF817F297181AB00508664 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF817D297181AB00508664 /* Note+CoreDataProperties.swift */; };
+		CCC242592978720500A4CFB9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC242582978720500A4CFB9 /* AboutViewController.swift */; };
 		CCC81D73297314DF00A6B61E /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC81D72297314DF00A6B61E /* FavoritesTableViewCell.swift */; };
 		CCC81D792973197D00A6B61E /* FavoriteRecipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC81D772973197D00A6B61E /* FavoriteRecipe+CoreDataClass.swift */; };
 		CCC81D7A2973197D00A6B61E /* FavoriteRecipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC81D782973197D00A6B61E /* FavoriteRecipe+CoreDataProperties.swift */; };
@@ -105,14 +104,12 @@
 		CC9B91EF2956F8FC00D0A4D2 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		CC9B91F12956F90E00D0A4D2 /* RecentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
 		CC9B91F4295A245600D0A4D2 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
-		CC9B91F6295A48FB00D0A4D2 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		CC9B91F9295A4A4500D0A4D2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CC9E77E3296841E4003353A6 /* RecipeInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInfoViewModel.swift; sourceTree = "<group>"; };
 		CC9E77E829689256003353A6 /* RecipeHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHeaderViewModel.swift; sourceTree = "<group>"; };
 		CCB95C8E2964BD2B00DB4857 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		CCB95C902967250C00DB4857 /* CookingGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingGuideCell.swift; sourceTree = "<group>"; };
 		CCBA0955295B99E60064F772 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		CCBA0959295BB3090064F772 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		CCBD18A6296DEAAA006EF498 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		CCBE38B5296059FE00266022 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
 		CCBF8166296E048600508664 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
@@ -121,6 +118,7 @@
 		CCBF817A29717FAE00508664 /* NoteDataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDataPersistenceManager.swift; sourceTree = "<group>"; };
 		CCBF817C297181AB00508664 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CCBF817D297181AB00508664 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CCC242582978720500A4CFB9 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		CCC81D72297314DF00A6B61E /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		CCC81D772973197D00A6B61E /* FavoriteRecipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteRecipe+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CCC81D782973197D00A6B61E /* FavoriteRecipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteRecipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -258,6 +256,7 @@
 				CC9B91F12956F90E00D0A4D2 /* RecentViewController.swift */,
 				CC9AE3502962014F00194318 /* RecipeViewController.swift */,
 				CCBF816D29703C3200508664 /* AddEventViewController.swift */,
+				CCC242582978720500A4CFB9 /* AboutViewController.swift */,
 			);
 			path = general;
 			sourceTree = "<group>";
@@ -298,7 +297,6 @@
 		CCBA0954295B99530064F772 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CC9B91F6295A48FB00D0A4D2 /* VideoPlayer.swift */,
 				CCBF8166296E048600508664 /* CalendarHelper.swift */,
 			);
 			path = Models;
@@ -307,7 +305,6 @@
 		CCBA095B295BD47A0064F772 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CCBA0959295BB3090064F772 /* video.mp4 */,
 				CCBE38B5296059FE00266022 /* Recipes.swift */,
 			);
 			path = Resources;
@@ -455,7 +452,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCBA095A295BB3090064F772 /* video.mp4 in Resources */,
 				CC9ABE952955DF4500EFF6C6 /* LaunchScreen.storyboard in Resources */,
 				CC9ABE922955DF4500EFF6C6 /* Assets.xcassets in Resources */,
 			);
@@ -506,7 +502,6 @@
 				CCC81D792973197D00A6B61E /* FavoriteRecipe+CoreDataClass.swift in Sources */,
 				CC9ABEC02955F9CC00EFF6C6 /* SettingsViewController.swift in Sources */,
 				CC9ABE8B2955DF4300EFF6C6 /* SceneDelegate.swift in Sources */,
-				CC9B91F7295A48FB00D0A4D2 /* VideoPlayer.swift in Sources */,
 				CC9B91FA295A4A4500D0A4D2 /* Extensions.swift in Sources */,
 				CC9E77E4296841E4003353A6 /* RecipeInfoViewModel.swift in Sources */,
 				CCB95C8F2964BD2B00DB4857 /* IngredientCell.swift in Sources */,
@@ -520,6 +515,7 @@
 				CCBF8172297058C500508664 /* NoteTableViewCell.swift in Sources */,
 				CCBF8167296E048600508664 /* CalendarHelper.swift in Sources */,
 				CC9AE3512962014F00194318 /* RecipeViewController.swift in Sources */,
+				CCC242592978720500A4CFB9 /* AboutViewController.swift in Sources */,
 				CC9ABEBA2955E4C000EFF6C6 /* HomeViewController.swift in Sources */,
 				CCBF817E297181AB00508664 /* Note+CoreDataClass.swift in Sources */,
 				CC9B91F02956F8FC00D0A4D2 /* FavoritesViewController.swift in Sources */,
@@ -691,11 +687,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3BCLANGRR7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "My app/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -708,6 +706,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ohunmamajon.My-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -719,11 +720,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3BCLANGRR7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "My app/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -736,6 +739,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ohunmamajon.My-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

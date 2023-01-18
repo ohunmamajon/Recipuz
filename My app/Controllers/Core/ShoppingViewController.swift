@@ -27,6 +27,7 @@ class ShoppingViewController: UIViewController {
         title = "Shopping List"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
+        navigationItem.rightBarButtonItem?.tintColor = .label
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(sender:)))
         tableView.addGestureRecognizer(longPress)
         longPress.minimumPressDuration = 0.6

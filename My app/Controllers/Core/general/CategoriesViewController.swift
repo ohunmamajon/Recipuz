@@ -17,7 +17,9 @@ enum Sections: Int {
 
 class CategoriesViewController: UIViewController {
     
-    let sectionTitles: [String] = ["Uzbek Meals", "Western Meals", "Desserts", "Cakes"]
+    let headerImageNames: [String] = ["header1", "header2", "header3", "header4", "header5", "header6"]
+    
+    let sectionTitles: [String] = ["Uzbek Meals", "Western Meals", "Sallads", "Desserts"]
     
     var headerView : HeaderView?
  
@@ -37,12 +39,17 @@ class CategoriesViewController: UIViewController {
         coursesTable.delegate = self
         coursesTable.dataSource = self
 
-
-        headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height / 4.5))
-        
-        
+        headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 220))
+        configureHeaderView()
   coursesTable.tableHeaderView = headerView
        
+    }
+    
+    private func configureHeaderView(){
+        DispatchQueue.main.async { [weak self] in
+            let selectedImage = self?.headerImageNames.randomElement()
+            self?.headerView?.configure(name: selectedImage!)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -51,8 +58,7 @@ class CategoriesViewController: UIViewController {
         
         
     }
-    
-    
+
 
 }
 extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -77,7 +83,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         case Sections.Desserts.rawValue:
             cell.configure(with: Recipes.shared.salads)
         case Sections.Cakes.rawValue:
-            cell.configure(with: Recipes.shared.drinks)
+            cell.configure(with: Recipes.shared.desserts)
         default:
             return UITableViewCell()
         }

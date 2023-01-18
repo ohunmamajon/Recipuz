@@ -14,12 +14,16 @@ class IngredientCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .label
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         return label
     }()
     
     let amountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         label.textColor = .label
         return label
     }()
@@ -28,24 +32,15 @@ class IngredientCell: UITableViewCell {
    let addButton : UIButton = {
        let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-       button.setTitle("Add", for: .normal)
-       button.backgroundColor = .systemGreen
-        button.layer.borderWidth = 1
-       button.tintColor = .white
-        button.layer.cornerRadius = 8
-       button.layer.masksToBounds = true
+       button.setImage(UIImage(systemName: "cart.badge.plus"), for: .normal)
+       button.tintColor = .label
        button.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
-        button.layer.borderColor = UIColor.label.cgColor
+       button.widthAnchor.constraint(equalToConstant: 30).isActive = true
         return button
     }()
     
     @objc func addButtonPressed(_ sender: UIButton){
-        sender.alpha = 0.5
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2){
-            sender.alpha = 1.0
-        }
-        
+
         ItemDataPersistenceManager.shared.createItem(name: ingredientLabel.text ?? "")
         NotificationCenter.default.post(name:NSNotification.Name( "ingredientAdded"), object: nil)
     }
@@ -61,20 +56,23 @@ class IngredientCell: UITableViewCell {
         stack.axis = .horizontal
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.alignment = .center
-        stack.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
-        stack.isLayoutMarginsRelativeArrangement = true
         stack.distribution = .fillEqually
         stack.addArrangedSubview(ingredientLabel)
         stack.addArrangedSubview(amountLabel)
-        stack.addArrangedSubview(addButton)
         return stack
     }()
     
     func applyConstaints(){
+        
+        addButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25).isActive = true
+        addButton.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
+        
+        stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         stackView.centerYAnchor.constraint(equalTo:contentView.centerYAnchor).isActive = true
-        stackView.centerXAnchor.constraint(equalTo:contentView.centerXAnchor).isActive = true
-        stackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -55).isActive = true
         stackView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 1).isActive = true
+        
     }
     
     public func configure(with model: Ingredients){

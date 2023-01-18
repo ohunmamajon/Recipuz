@@ -29,7 +29,7 @@ class MainTabBarViewController: UITabBarController {
     
         
         vc1.title = "Home"
-        vc2.title = "Shopping"
+        vc2.title = "Shopping List"
         vc3.title = "Planner"
         vc4.title = "Settings"
         

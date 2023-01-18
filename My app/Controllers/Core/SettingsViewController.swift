@@ -15,10 +15,23 @@ class SettingsViewController: UIViewController {
         view.addSubview(onOffswitch)
         view.addSubview(darkModeLabel)
         view.addSubview(onOffLabel)
-        view.addSubview(stackView)
-        applyConstraints()
+        view.addSubview(tableView)
+        tableView.delegate =  self
+        tableView.dataSource = self
         checkSwitchState()
        
+    }
+    
+    let tableView : UITableView = {
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.backgroundColor = .systemBackground
+        table.separatorStyle = .none
+        return table
+    }()
+    override func viewDidLayoutSubviews() {
+        tableView.frame = view.bounds
     }
     
     public func   checkSwitchState(){
@@ -94,14 +107,56 @@ class SettingsViewController: UIViewController {
             onOffLabel.text = "OFF"
         }
     }
-    private func applyConstraints(){
-        
-        darkModeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
-        darkModeLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30).isActive = true
-        
-        stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 45).isActive = true
-        stackView.widthAnchor.constraint(equalToConstant: 90).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15).isActive = true
+    
+    let aboutLabel : UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .label
+        label.text = "About"
+         return label
+     }()
+
+   
+ 
+    
+}
+extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        if indexPath.row == 0 {
+            cell.contentView.addSubview(stackView)
+            cell.contentView.addSubview(darkModeLabel)
+            cell.selectionStyle = .none
+
+                    darkModeLabel.leadingAnchor.constraint(equalTo: cell.contentView.safeAreaLayoutGuide.leadingAnchor, constant: 30).isActive = true
+            darkModeLabel.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
+                    
+            stackView.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
+                    stackView.widthAnchor.constraint(equalToConstant: 90).isActive = true
+            stackView.trailingAnchor.constraint(equalTo: cell.contentView.safeAreaLayoutGuide.trailingAnchor, constant: -15).isActive = true
+        }
+        else if indexPath.row == 1 {
+            cell.contentView.addSubview(aboutLabel)
+            cell.selectionStyle = .none
+            aboutLabel.leadingAnchor.constraint(equalTo: cell.contentView.safeAreaLayoutGuide.leadingAnchor, constant: 30).isActive = true
+            aboutLabel.heightAnchor.constraint(equalTo: cell.contentView.heightAnchor).isActive = true
+        }
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 1 {
+        let vc = AboutViewController()
+           
+            present(vc, animated: true)
+        }
     }
     
 }

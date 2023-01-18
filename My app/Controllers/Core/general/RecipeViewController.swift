@@ -28,6 +28,7 @@ class RecipeViewController: UIViewController {
         view.addSubview(recipeTable)
         recipeTable.delegate = self
         recipeTable.dataSource = self
+        title = recipe.title
         recipeHeader = RecipeHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 200))
         recipeHeader?.configure(with: RecipeHeaderViewModel(imageName: recipe.imageName))
         recipeTable.tableHeaderView = recipeHeader

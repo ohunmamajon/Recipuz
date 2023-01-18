@@ -30,15 +30,44 @@ class AddEventViewController: UIViewController {
         return picker
     }()
     
+  
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubview(textField)
         view.addSubview(datePicker)
+    
         applyConstraints()
         datePicker.setDate(selectedDate, animated: true)
         datePicker.addTarget(self, action: #selector(datePicked), for: .valueChanged)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveButtonPressed))
+        navigationController?.navigationBar.tintColor = .label
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func hideKeyboard(){
+        self.view.endEditing(true)
+    }
+    
+    @objc private func keyboardWillShow(notification: Notification){
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            let bottomSpace = self.view.frame.height - (textField.frame.origin.y + textField.frame.height)
+            self.view.frame.origin.y -= keyboardHeight - bottomSpace + 10
+        }
+    }
+    
+    @objc private func keyboardWillHide(){
+        self.view.frame.origin.y  = 0
+    }
+    deinit{
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func saveButtonPressed(){
@@ -55,14 +84,17 @@ class AddEventViewController: UIViewController {
     }
 
     private func applyConstraints(){
-        textField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: view.frame.width/5).isActive = true
-        textField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9).isActive = true
-        textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        textField.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         
-        datePicker.topAnchor.constraint(equalToSystemSpacingBelow: textField.bottomAnchor, multiplier: 1).isActive = true
+        datePicker.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2).isActive = true
         datePicker.widthAnchor.constraint(equalTo: textField.widthAnchor).isActive = true
         datePicker.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        
+        textField.topAnchor.constraint(equalToSystemSpacingBelow: datePicker.bottomAnchor , multiplier: 1).isActive = true
+        textField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9).isActive = true
+        textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        
     }
 
 }

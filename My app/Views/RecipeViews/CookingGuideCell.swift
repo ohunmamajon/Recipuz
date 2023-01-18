@@ -14,6 +14,7 @@ class CookingGuideCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .label
+        label.font = .systemFont(ofSize: 20, weight: .bold)
         return label
     }()
     
