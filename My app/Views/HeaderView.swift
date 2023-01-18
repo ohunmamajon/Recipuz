@@ -42,16 +42,16 @@ class HeaderView: UIView {
        addSubview(videoView)
 //        applyGradient()
         addSubview(label)
-       
-        try? VideoPlayer.shared.play(
-            view: videoView,
-            videoName: "video",
-            videoType: "mp4",
-            isMuted: true,
-            darkness: 0.0,
-            willLoopVideo: true,
-            setAudioSessionAmbient: true
-        )
+//       
+//        try? VideoPlayer.shared.play(
+//            view: videoView,
+//            videoName: "video",
+//            videoType: "mp4",
+//            isMuted: true,
+//            darkness: 0.0,
+//            willLoopVideo: true,
+//            setAudioSessionAmbient: true
+//        )
 
     }
     private func applyConstraints(){
