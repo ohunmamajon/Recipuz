@@ -1,7 +1,7 @@
 
 # Recipe app
 # made with UIKit and code-based UI
-#####  Demonstrated:
+####  What I have practiced:
    ## - Tab Bars and Table Views
    ## - Collection View 
    ## - MVVM design pattern
