@@ -38,7 +38,6 @@
 		CCB95C8F2964BD2B00DB4857 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB95C8E2964BD2B00DB4857 /* IngredientCell.swift */; };
 		CCB95C912967250C00DB4857 /* CookingGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB95C902967250C00DB4857 /* CookingGuideCell.swift */; };
 		CCBA0956295B99E60064F772 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA0955295B99E60064F772 /* HeaderView.swift */; };
-		CCBD18A7296DEAAA006EF498 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBD18A6296DEAAA006EF498 /* CalendarCell.swift */; };
 		CCBE38B6296059FE00266022 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBE38B5296059FE00266022 /* Recipes.swift */; };
 		CCBF8167296E048600508664 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF8166296E048600508664 /* CalendarHelper.swift */; };
 		CCBF816E29703C3200508664 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF816D29703C3200508664 /* AddEventViewController.swift */; };
@@ -110,7 +109,6 @@
 		CCB95C8E2964BD2B00DB4857 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		CCB95C902967250C00DB4857 /* CookingGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingGuideCell.swift; sourceTree = "<group>"; };
 		CCBA0955295B99E60064F772 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		CCBD18A6296DEAAA006EF498 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		CCBE38B5296059FE00266022 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
 		CCBF8166296E048600508664 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		CCBF816D29703C3200508664 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
@@ -167,14 +165,13 @@
 		CC9ABE7C2955DF4300EFF6C6 = {
 			isa = PBXGroup;
 			children = (
+				CC9ABE872955DF4300EFF6C6 /* My app */,
 				CC9ABE882955DF4300EFF6C6 /* AppDelegate.swift */,
 				CC9ABE8A2955DF4300EFF6C6 /* SceneDelegate.swift */,
 				FE63DD932975D09400887EDD /* Recent */,
 				CCC81D7B2973199A00A6B61E /* FavoriteRecipe */,
 				CCBF817929717F6900508664 /* Note */,
 				CC99D397296B25E200E116F6 /* TodoListItem */,
-				CCBA095B295BD47A0064F772 /* Resources */,
-				CC9ABE872955DF4300EFF6C6 /* My app */,
 				CC9ABE9E2955DF4500EFF6C6 /* My appTests */,
 				CC9ABEA82955DF4500EFF6C6 /* My appUITests */,
 				CC9ABE862955DF4300EFF6C6 /* Products */,
@@ -194,10 +191,11 @@
 		CC9ABE872955DF4300EFF6C6 /* My app */ = {
 			isa = PBXGroup;
 			children = (
-				CC9E77E52968422E003353A6 /* ViewModels */,
-				CCBA0954295B99530064F772 /* Models */,
+				CCBA095B295BD47A0064F772 /* Managers */,
 				CC9B91F8295A4A2700D0A4D2 /* Extensions */,
 				CC9B91F3295A23F000D0A4D2 /* Views */,
+				CCBA0954295B99530064F772 /* Models */,
+				CC9E77E52968422E003353A6 /* ViewModels */,
 				CCBF81682970285800508664 /* Controllers */,
 				CC9ABE912955DF4500EFF6C6 /* Assets.xcassets */,
 				CC9ABE932955DF4500EFF6C6 /* LaunchScreen.storyboard */,
@@ -268,7 +266,6 @@
 				CCBA0955295B99E60064F772 /* HeaderView.swift */,
 				CC9B7DF5296995DE006A67AA /* RecipeCollectionViewCell.swift */,
 				CC99D39A296C634B00E116F6 /* ShoppingTableViewCell.swift */,
-				CCBD18A6296DEAAA006EF498 /* CalendarCell.swift */,
 				CC9AE35629635CA300194318 /* RecipeViews */,
 				CCBF8171297058C500508664 /* NoteTableViewCell.swift */,
 				CCC81D72297314DF00A6B61E /* FavoritesTableViewCell.swift */,
@@ -297,17 +294,17 @@
 		CCBA0954295B99530064F772 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CCBF8166296E048600508664 /* CalendarHelper.swift */,
+				CCBE38B5296059FE00266022 /* Recipes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		CCBA095B295BD47A0064F772 /* Resources */ = {
+		CCBA095B295BD47A0064F772 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				CCBE38B5296059FE00266022 /* Recipes.swift */,
+				CCBF8166296E048600508664 /* CalendarHelper.swift */,
 			);
-			path = Resources;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		CCBF81682970285800508664 /* Controllers */ = {
@@ -493,7 +490,6 @@
 				CC9B91F22956F90E00D0A4D2 /* RecentViewController.swift in Sources */,
 				CC99D39B296C634B00E116F6 /* ShoppingTableViewCell.swift in Sources */,
 				CCBF817F297181AB00508664 /* Note+CoreDataProperties.swift in Sources */,
-				CCBD18A7296DEAAA006EF498 /* CalendarCell.swift in Sources */,
 				CC9AE35329621AC200194318 /* RecipeHeaderView.swift in Sources */,
 				CC9B91F5295A245600D0A4D2 /* CollectionViewTableViewCell.swift in Sources */,
 				CC9ABE892955DF4300EFF6C6 /* AppDelegate.swift in Sources */,
@@ -688,6 +684,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3BCLANGRR7;
@@ -706,6 +703,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ohunmamajon.My-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -721,6 +719,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3BCLANGRR7;
@@ -739,6 +738,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ohunmamajon.My-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

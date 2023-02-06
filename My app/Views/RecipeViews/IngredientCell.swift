@@ -47,7 +47,7 @@ class IngredientCell: UITableViewCell {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         if (traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection)){
-            addButton.layer.borderColor = UIColor.label.cgColor
+            addButton.tintColor = UIColor.label
         }
     }
     
@@ -65,7 +65,7 @@ class IngredientCell: UITableViewCell {
     func applyConstaints(){
         
         addButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25).isActive = true
+        addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30).isActive = true
         addButton.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
         
         stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true

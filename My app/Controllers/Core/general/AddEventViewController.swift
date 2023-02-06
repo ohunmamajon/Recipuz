@@ -58,8 +58,10 @@ class AddEventViewController: UIViewController {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardHeight = keyboardFrame.cgRectValue.height
             let bottomSpace = self.view.frame.height - (textField.frame.origin.y + textField.frame.height)
-            self.view.frame.origin.y -= keyboardHeight - bottomSpace + 10
-        }
+            if bottomSpace < keyboardHeight {
+                self.view.frame.origin.y -= keyboardHeight - bottomSpace + 10
+            }
+            }
     }
     
     @objc private func keyboardWillHide(){
@@ -85,9 +87,10 @@ class AddEventViewController: UIViewController {
 
     private func applyConstraints(){
         
-        datePicker.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2).isActive = true
-        datePicker.widthAnchor.constraint(equalTo: textField.widthAnchor).isActive = true
-        datePicker.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        datePicker.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 20).isActive = true
+        datePicker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        datePicker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        
         
         textField.topAnchor.constraint(equalToSystemSpacingBelow: datePicker.bottomAnchor , multiplier: 1).isActive = true
         textField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9).isActive = true

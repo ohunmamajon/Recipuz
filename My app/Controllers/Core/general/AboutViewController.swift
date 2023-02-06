@@ -13,6 +13,8 @@ class AboutViewController: UIViewController {
     let textLabel : UILabel = {
        let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.numberOfLines = 0
+        view.lineBreakMode = .byWordWrapping
         view.text = "This app was created by Okhunjon Mamajonov \n\n Contact:   ohunmamajon@gmail.com \n\n "
         view.textColor = .label
         view.numberOfLines = 0
@@ -21,9 +23,9 @@ class AboutViewController: UIViewController {
     }()
     
     let closeButton : UIButton  = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Close", for: .normal)
-        button.tintColor = .label
+        button.tintColor = UIColor.label
         button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -34,6 +36,12 @@ class AboutViewController: UIViewController {
         
     }
     
+  
+    
+    public func changeColor (){
+        closeButton.tintColor = .label
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -41,15 +49,16 @@ class AboutViewController: UIViewController {
                 view.addSubview(textLabel)
         view.addSubview(closeButton)
         
-        textLabel.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        textLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
-        textLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30).isActive = true
-        textLabel.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
+        textLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100).isActive = true
+        textLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15).isActive = true
+        textLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         
         closeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30).isActive = true
         closeButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         closeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        closeButton.tintColor = UIColor.label
         
     }
     

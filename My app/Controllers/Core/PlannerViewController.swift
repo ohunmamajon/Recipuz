@@ -141,6 +141,8 @@ extension PlannerViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.contentView.addSubview(datePicker)
+            datePicker.leadingAnchor.constraint(equalTo: cell.contentView.safeAreaLayoutGuide.leadingAnchor).isActive = true
+            datePicker.trailingAnchor.constraint(equalTo: cell.contentView.safeAreaLayoutGuide.trailingAnchor).isActive = true 
             cell.selectionStyle = .none
             cell.contentView.backgroundColor = .systemBackground
             return cell

@@ -9,8 +9,8 @@ import UIKit
 import AVKit
 
 enum Sections: Int {
-    case UzbekMeals = 0
-    case WesternMeals = 1
+    case UzbekCuisine = 0
+    case WesternCuisine = 1
     case Desserts = 2
     case Cakes = 3
 }
@@ -19,7 +19,7 @@ class CategoriesViewController: UIViewController {
     
     let headerImageNames: [String] = ["header1", "header2", "header3", "header4", "header5", "header6"]
     
-    let sectionTitles: [String] = ["Uzbek Meals", "Western Meals", "Sallads", "Desserts"]
+    let sectionTitles: [String] = ["Uzbek cuisine", "Western cuisine", "Salads", "Desserts"]
     
     var headerView : HeaderView?
  
@@ -76,9 +76,9 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         tableView.separatorStyle = .none
         switch indexPath.section {
-        case Sections.UzbekMeals.rawValue:
+        case Sections.UzbekCuisine.rawValue:
             cell.configure(with: Recipes.shared.uzbekMeals)
-        case Sections.WesternMeals.rawValue:
+        case Sections.WesternCuisine.rawValue:
             cell.configure(with: Recipes.shared.westernMeals)
         case Sections.Desserts.rawValue:
             cell.configure(with: Recipes.shared.salads)

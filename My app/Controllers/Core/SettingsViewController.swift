@@ -155,6 +155,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 1 {
         let vc = AboutViewController()
            
+           
             present(vc, animated: true)
         }
     }
