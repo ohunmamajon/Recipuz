@@ -235,7 +235,6 @@
 				CC9ABEBB2955E57E00EFF6C6 /* ShoppingViewController.swift */,
 				CC9ABEBD2955E5B300EFF6C6 /* PlannerViewController.swift */,
 				CC9ABEBF2955F9CC00EFF6C6 /* SettingsViewController.swift */,
-				CC9B91EA2956F89400D0A4D2 /* General */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -325,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				CC9ABEB82955E48C00EFF6C6 /* Core */,
+				CC9B91EA2956F89400D0A4D2 /* General */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
