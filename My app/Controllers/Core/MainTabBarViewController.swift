@@ -12,6 +12,7 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bringTabBar()
+        view.alpha = 0
        
     }
     func bringTabBar(){
@@ -36,6 +37,13 @@ class MainTabBarViewController: UITabBarController {
        setViewControllers([vc1, vc2, vc3, vc4], animated: true)
         navigationController?.pushViewController(vc2, animated: true)
         tabBar.tintColor = .label
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 0.5) {
+            self.view.alpha = 1
+        }
     }
 }
 

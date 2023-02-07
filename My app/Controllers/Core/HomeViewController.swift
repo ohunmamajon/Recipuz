@@ -42,7 +42,7 @@ class HomeViewController: UIViewController {
        
         
     }
-    
+
     func setup(){
 
         addChild(categoriesVC)

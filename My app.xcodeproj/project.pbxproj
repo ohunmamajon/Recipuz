@@ -33,6 +33,8 @@
 		CC9B91F22956F90E00D0A4D2 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91F12956F90E00D0A4D2 /* RecentViewController.swift */; };
 		CC9B91F5295A245600D0A4D2 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91F4295A245600D0A4D2 /* CollectionViewTableViewCell.swift */; };
 		CC9B91FA295A4A4500D0A4D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B91F9295A4A4500D0A4D2 /* Extensions.swift */; };
+		CC9CDB9129919E0100A435CC /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9CDB9029919E0100A435CC /* LaunchScreenViewController.swift */; };
+		CC9CDB972991AE3600A435CC /* MeriendaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC9CDB952991AE3600A435CC /* MeriendaOne-Regular.ttf */; };
 		CC9E77E4296841E4003353A6 /* RecipeInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9E77E3296841E4003353A6 /* RecipeInfoViewModel.swift */; };
 		CC9E77E929689256003353A6 /* RecipeHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9E77E829689256003353A6 /* RecipeHeaderViewModel.swift */; };
 		CCB95C8F2964BD2B00DB4857 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB95C8E2964BD2B00DB4857 /* IngredientCell.swift */; };
@@ -104,6 +106,8 @@
 		CC9B91F12956F90E00D0A4D2 /* RecentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
 		CC9B91F4295A245600D0A4D2 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		CC9B91F9295A4A4500D0A4D2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CC9CDB9029919E0100A435CC /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		CC9CDB952991AE3600A435CC /* MeriendaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MeriendaOne-Regular.ttf"; sourceTree = "<group>"; };
 		CC9E77E3296841E4003353A6 /* RecipeInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInfoViewModel.swift; sourceTree = "<group>"; };
 		CC9E77E829689256003353A6 /* RecipeHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHeaderViewModel.swift; sourceTree = "<group>"; };
 		CCB95C8E2964BD2B00DB4857 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				CC9ABE872955DF4300EFF6C6 /* My app */,
 				CC9ABE882955DF4300EFF6C6 /* AppDelegate.swift */,
 				CC9ABE8A2955DF4300EFF6C6 /* SceneDelegate.swift */,
+				CC9CDB942991AE3600A435CC /* Merienda_One */,
 				FE63DD932975D09400887EDD /* Recent */,
 				CCC81D7B2973199A00A6B61E /* FavoriteRecipe */,
 				CCBF817929717F6900508664 /* Note */,
@@ -230,7 +235,7 @@
 				CC9ABEBB2955E57E00EFF6C6 /* ShoppingViewController.swift */,
 				CC9ABEBD2955E5B300EFF6C6 /* PlannerViewController.swift */,
 				CC9ABEBF2955F9CC00EFF6C6 /* SettingsViewController.swift */,
-				CC9B91EA2956F89400D0A4D2 /* general */,
+				CC9B91EA2956F89400D0A4D2 /* General */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -246,7 +251,7 @@
 			path = RecipeViews;
 			sourceTree = "<group>";
 		};
-		CC9B91EA2956F89400D0A4D2 /* general */ = {
+		CC9B91EA2956F89400D0A4D2 /* General */ = {
 			isa = PBXGroup;
 			children = (
 				CC9B91EB2956F8D600D0A4D2 /* CategoriesViewController.swift */,
@@ -255,8 +260,9 @@
 				CC9AE3502962014F00194318 /* RecipeViewController.swift */,
 				CCBF816D29703C3200508664 /* AddEventViewController.swift */,
 				CCC242582978720500A4CFB9 /* AboutViewController.swift */,
+				CC9CDB9029919E0100A435CC /* LaunchScreenViewController.swift */,
 			);
-			path = general;
+			path = General;
 			sourceTree = "<group>";
 		};
 		CC9B91F3295A23F000D0A4D2 /* Views */ = {
@@ -279,6 +285,14 @@
 				CC9B91F9295A4A4500D0A4D2 /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CC9CDB942991AE3600A435CC /* Merienda_One */ = {
+			isa = PBXGroup;
+			children = (
+				CC9CDB952991AE3600A435CC /* MeriendaOne-Regular.ttf */,
+			);
+			path = Merienda_One;
 			sourceTree = "<group>";
 		};
 		CC9E77E52968422E003353A6 /* ViewModels */ = {
@@ -450,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC9ABE952955DF4500EFF6C6 /* LaunchScreen.storyboard in Resources */,
+				CC9CDB972991AE3600A435CC /* MeriendaOne-Regular.ttf in Resources */,
 				CC9ABE922955DF4500EFF6C6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +499,7 @@
 				FE63DD952975D0DC00887EDD /* RecentDataPerManager.swift in Sources */,
 				FE63DD922975D08A00887EDD /* RecentRecipe+CoreDataProperties.swift in Sources */,
 				CC9ABE8D2955DF4300EFF6C6 /* MainTabBarViewController.swift in Sources */,
+				CC9CDB9129919E0100A435CC /* LaunchScreenViewController.swift in Sources */,
 				CCC81D7D297319E000A6B61E /* FavoriteRecipeDataPerManager.swift in Sources */,
 				CC9B91EC2956F8D600D0A4D2 /* CategoriesViewController.swift in Sources */,
 				CCBF817B29717FAE00508664 /* NoteDataPersistenceManager.swift in Sources */,
