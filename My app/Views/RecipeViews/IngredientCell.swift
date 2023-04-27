@@ -43,6 +43,15 @@ class IngredientCell: UITableViewCell {
 
         ItemDataPersistenceManager.shared.createItem(name: ingredientLabel.text ?? "")
         NotificationCenter.default.post(name:NSNotification.Name( "ingredientAdded"), object: nil)
+        animateAddButton()
+    }
+    
+    private func animateAddButton (){
+        UIView.animate(withDuration: 0.5, delay: 0) {
+                self.addButton.alpha = 1
+                self.addButton.transform = CGAffineTransform(scaleX: 4, y: 4)
+            self.addButton.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -66,12 +75,13 @@ class IngredientCell: UITableViewCell {
         
         addButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
         addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30).isActive = true
-        addButton.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
+        addButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        addButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
         stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
-        stackView.centerYAnchor.constraint(equalTo:contentView.centerYAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -55).isActive = true
-        stackView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 1).isActive = true
+        stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
     }
     

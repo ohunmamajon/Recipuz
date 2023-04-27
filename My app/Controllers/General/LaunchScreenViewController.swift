@@ -91,12 +91,12 @@ class LaunchScreenViewController: UIViewController {
     // MARK: Animation
     func animateLabels(){
         
-        UIView.animate(withDuration: 1.5) {
+        UIView.animate(withDuration: 1) {
             self.appName.alpha = 1
             self.appName.frame.origin.y -= 50
             self.backgroundView.alpha = 0.4
         }
-        UIView.animate(withDuration: 2.5, delay: 1.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 0){
+        UIView.animate(withDuration: 2.0, delay: 1.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 0){
             self.welcomeLabel.alpha = 1
             self.welcomeLabel.frame.origin.y -= 50
         } completion: { completed in
@@ -107,7 +107,7 @@ class LaunchScreenViewController: UIViewController {
             }
         }
         
-        UIView.animate(withDuration: 0.6, delay: 0.5,options: [.repeat, .autoreverse]) {
+        UIView.animate(withDuration: 0.6, delay: 0.2,options: [.repeat, .autoreverse]) {
                 self.loadingLabel.alpha = 1
                 self.loadingLabel.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             }

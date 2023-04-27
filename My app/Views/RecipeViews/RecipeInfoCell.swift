@@ -83,9 +83,17 @@ class RecipeInfoCell: UITableViewCell {
             heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             FavoriteRecipeDataPerManager.shared.createRecipe(imageName: imageName!, recipeName: recipeName!)
         }
-       
+       animateHeartButton()
     }
    
+    private func animateHeartButton (){
+        UIView.animate(withDuration: 0.8, delay: 0) {
+                self.heartButton.alpha = 1
+            self.heartButton.transform = CGAffineTransform(scaleX: 3, y: 1)
+            self.heartButton.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
   

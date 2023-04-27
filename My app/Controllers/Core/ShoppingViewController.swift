@@ -42,7 +42,7 @@ class ShoppingViewController: UIViewController {
             let touchPoint = sender.location(in: tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint){
                 let item = ItemDataPersistenceManager.shared.models[indexPath.row]
-                let sheet = UIAlertController(title: "Edit", message: nil, preferredStyle: .actionSheet)
+                let sheet = UIAlertController(title: "Edit", message: nil, preferredStyle: .alert)
                 
                 sheet.addAction(UIAlertAction.init(title: "Cancel", style: .cancel))
                 sheet.addAction(UIAlertAction.init(title: "Edit", style: .default, handler: { [weak self] _ in

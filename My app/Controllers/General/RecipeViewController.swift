@@ -16,6 +16,7 @@ class RecipeViewController: UIViewController {
         table.register(RecipeInfoCell.self, forCellReuseIdentifier: RecipeInfoCell.identifier)
         table.register(IngredientCell.self, forCellReuseIdentifier: IngredientCell.identifier)
         table.register(CookingGuideCell.self, forCellReuseIdentifier: CookingGuideCell.identifier)
+        table.backgroundColor = .systemBackground
         return table
     } ()
     public func configure(with model: Recipe){
