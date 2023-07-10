@@ -53,7 +53,6 @@ class RecipeInfoCell: UITableViewCell {
     let heartButton : UIButton = {
         let button = UIButton(type: .system)
          button.translatesAutoresizingMaskIntoConstraints = false
-       
         button.addTarget(self, action: #selector(heartButtonPressed), for: .touchUpInside)
          return button
      }()
@@ -151,8 +150,8 @@ class RecipeInfoCell: UITableViewCell {
    
     public func configure(with model: RecipeInfoViewModel){
         info.text = model.info
-        serving.text = String(model.serving) + " kishi"
-        preparationTime.text = String(model.preparationTime) + " minut"
+        serving.text = String(model.serving) + " servings"
+        preparationTime.text = String(model.preparationTime) + " minutes"
         recipeName = model.recipeName
         imageName = model.imageName
     }

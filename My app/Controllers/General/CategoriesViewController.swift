@@ -17,6 +17,8 @@ enum Sections: Int {
 
 class CategoriesViewController: UIViewController {
     
+
+    
     let headerImageNames: [String] = ["header1", "header2", "header3", "header4", "header5", "header6"]
     
     let sectionTitles: [String] = ["Uzbek cuisine", "Western cuisine", "Salads", "Desserts"]
@@ -42,8 +44,11 @@ class CategoriesViewController: UIViewController {
         headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 220))
         configureHeaderView()
   coursesTable.tableHeaderView = headerView
-       
+    
     }
+    
+    
+   
     
     private func configureHeaderView(){
         DispatchQueue.main.async { [weak self] in

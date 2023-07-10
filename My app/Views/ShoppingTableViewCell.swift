@@ -14,6 +14,7 @@ class ShoppingTableViewCell: UITableViewCell {
     let label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 22)
         label.textColor = .label
         return label
     }()

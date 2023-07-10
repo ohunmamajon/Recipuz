@@ -15,7 +15,7 @@ class NoteTableViewCell: UITableViewCell {
        let label = UILabel()
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.font = .systemFont(ofSize: 22, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .label
         return label

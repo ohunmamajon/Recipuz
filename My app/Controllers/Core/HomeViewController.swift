@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 let categoriesVC = CategoriesViewController()
 let favoritesVC = FavoritesViewController()
 let recentVC = RecentViewController()
@@ -16,6 +15,8 @@ let settingsVC = SettingsViewController()
 class HomeViewController: UIViewController {
     let items = ["Categories", "Favorites", "Recent"]
     let haptic = UISelectionFeedbackGenerator()
+    
+    
     
     lazy var segmentControl : UISegmentedControl = {
         let view = UISegmentedControl(items: items)
@@ -36,12 +37,13 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
 //        title = "Shef"
         navigationItem.titleView = segmentControl
-    
-        
+
         setup()
-       
+
         
     }
+    
+   
 
     func setup(){
 

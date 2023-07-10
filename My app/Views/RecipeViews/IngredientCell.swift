@@ -9,6 +9,8 @@ import UIKit
 
 class IngredientCell: UITableViewCell {
 
+  
+    
     static let identifier = "IngredientTableViewCell"
     let ingredientLabel: UILabel = {
         let label = UILabel()
@@ -34,13 +36,15 @@ class IngredientCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
        button.setImage(UIImage(systemName: "cart.badge.plus"), for: .normal)
        button.tintColor = .label
+       button.contentEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
        button.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
-       button.widthAnchor.constraint(equalToConstant: 30).isActive = true
         return button
     }()
     
+    
     @objc func addButtonPressed(_ sender: UIButton){
 
+        
         ItemDataPersistenceManager.shared.createItem(name: ingredientLabel.text ?? "")
         NotificationCenter.default.post(name:NSNotification.Name( "ingredientAdded"), object: nil)
         animateAddButton()
@@ -73,7 +77,7 @@ class IngredientCell: UITableViewCell {
     
     func applyConstaints(){
         
-        addButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        addButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
         addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30).isActive = true
         addButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
         addButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
@@ -104,5 +108,5 @@ class IngredientCell: UITableViewCell {
        fatalError()
     }
     
-    
 }
+

@@ -38,7 +38,7 @@ class CookingGuideCell: UITableViewCell {
    }
     
     public func configure(with model: CookingGuide){
-        step.text = String(model.step) + " - ko`rsatma:"
+        step.text = "Step " + String(model.step)
         guide.text = model.guide
     }
 

@@ -12,7 +12,6 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bringTabBar()
-        view.alpha = 0
        
     }
     func bringTabBar(){
@@ -40,10 +39,5 @@ class MainTabBarViewController: UITabBarController {
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        UIView.animate(withDuration: 0.5) {
-            self.view.alpha = 1
-        }
-    }
 }
 

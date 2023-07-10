@@ -8,6 +8,18 @@
 import UIKit
 
 class LaunchScreenViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .black
+        view.addSubview(backgroundView)
+        view.addSubview(appName)
+        view.addSubview(welcomeLabel)
+        view.addSubview(loadingLabel)
+        appName.bringSubviewToFront(appName)
+        welcomeLabel.bringSubviewToFront(welcomeLabel)
+       applyConstraints()
+    }
 
     let backgroundView: UIImageView = {
         let view = UIImageView()
@@ -41,22 +53,10 @@ class LaunchScreenViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "MeriendaOne-Regular", size: 20)
         label.textColor = .white
-        label.text = "Let's cook!"
+        label.text = "Loading..."
         return label
     }()
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .black
-        view.addSubview(backgroundView)
-        view.addSubview(appName)
-        view.addSubview(welcomeLabel)
-        view.addSubview(loadingLabel)
-        appName.bringSubviewToFront(appName)
-        welcomeLabel.bringSubviewToFront(welcomeLabel)
-       applyConstraints()
-    }
+
    
     
     // MARK: - Navigation
@@ -96,7 +96,7 @@ class LaunchScreenViewController: UIViewController {
             self.appName.frame.origin.y -= 50
             self.backgroundView.alpha = 0.4
         }
-        UIView.animate(withDuration: 2.0, delay: 1.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 0){
+        UIView.animate(withDuration: 2, delay: 0.4, usingSpringWithDamping: 0.5, initialSpringVelocity: 0){
             self.welcomeLabel.alpha = 1
             self.welcomeLabel.frame.origin.y -= 50
         } completion: { completed in
@@ -107,7 +107,7 @@ class LaunchScreenViewController: UIViewController {
             }
         }
         
-        UIView.animate(withDuration: 0.6, delay: 0.2,options: [.repeat, .autoreverse]) {
+        UIView.animate(withDuration: 0.4, delay: 0.1,options: [.repeat, .autoreverse]) {
                 self.loadingLabel.alpha = 1
                 self.loadingLabel.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             }

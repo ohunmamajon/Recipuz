@@ -8,7 +8,7 @@
 import UIKit
 
 class RecipeViewController: UIViewController {
-    let sectionTitles: [String] = ["Qisqacha ma'lumot", "Kerakli masalliq", "Pishirish tartibi"]
+    let sectionTitles: [String] = ["Information", "Ingredients", "Insructions"]
     var recipeHeader: RecipeHeaderView?
     private var recipe : Recipe!
     let recipeTable : UITableView = {
@@ -92,8 +92,8 @@ extension RecipeViewController : UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
-        header.textLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
-        header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
+        header.textLabel?.font = .systemFont(ofSize: 24, weight: .semibold)
+        header.textLabel?.frame = CGRect(x: header.bounds.origin.x, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         header.textLabel?.textColor = .label
         header.textLabel?.text =  header.textLabel?.text?.capitalizeFirstLetter()
         header.contentView.backgroundColor = .systemBackground
@@ -105,7 +105,7 @@ extension RecipeViewController : UITableViewDelegate, UITableViewDataSource {
        return sectionTitles[section]
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        80
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
